@@ -1,0 +1,24 @@
+modLoader = "javafml"
+loaderVersion = "[2,)"
+license = "MIT"
+
+[[mods]]
+modId = "wilderflowers"
+displayName = "Wilder Flowers"
+version = "${version}"
+displayURL = ""
+logoFile = "assets/icon.png"
+authors = "cassiancc"
+description = '''Flowers, but better!'''
+
+[[dependencies.wilderflowers]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.1.181,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.wilderflowers]]
+modId = "minecraft"
+type = "required"
+versionRange = "${minecraft}"

@@ -1,0 +1,17 @@
+{
+    "replace": false,
+    "values": [
+        {
+            "id": "wilderflowers:cheery_wildflowers",
+            "required": false
+        },
+        {
+            "id": "wilderflowers:moody_wildflowers",
+            "required": false
+        },
+        {
+            "id": "wilderflowers:pink_petals",
+            "required": false
+        }
+    ]
+}

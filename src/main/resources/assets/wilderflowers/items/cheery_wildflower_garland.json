@@ -1,0 +1,19 @@
+{
+  "model": {
+    "type": "minecraft:select",
+    "property": "minecraft:display_context",
+    "cases": [
+      {
+        "when": "head",
+        "model": {
+          "type": "minecraft:model",
+          "model": "wilderflowers:item/cheery_wildflower_garland_head"
+        }
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "wilderflowers:item/cheery_wildflower_garland"
+    }
+  }
+}

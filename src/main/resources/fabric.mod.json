@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "wilderflowers",
+  "name": "Wilder Flowers",
+  "version": "${version}",
+  "authors": ["cassiancc"],
+  "contact": {
+    "sources": "",
+    "issues": ""
+  },
+  "description": "Flowers, but better!",
+  "icon": "assets/icon.png",
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "cc.cassian.wilderflowers.fabric.FabricEntrypoint"
+    ],
+    "client": [
+      "cc.cassian.wilderflowers.fabric.FabricClientEntrypoint"
+    ]
+  },
+  "depends": {
+    "fabric-api": "*"
+  }
+}
