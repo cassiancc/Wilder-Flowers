@@ -9,6 +9,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FlowerPotBlock;
@@ -17,8 +18,8 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
-import java.util.function.Function;
 import java.util.function.Supplier;
 
 import static cc.cassian.wilderflowers.registry.CommonRegistry.registerBlock;
@@ -30,17 +31,17 @@ public class WilderFlowersBlocks {
     public static final WildflowerSupplier CHEERY_WILDFLOWERS = registerWildflowerBlock("cheery_wildflowers");
     public static final WildflowerSupplier MOODY_WILDFLOWERS = registerWildflowerBlock("moody_wildflowers");
     public static final WildflowerSupplier PLAYFUL_WILDFLOWERS = registerWildflowerBlock("playful_wildflowers");
-    public static final WildflowerSupplier CLOVERS = registerWildflowerBlock("clovers", false);
+    public static final WildflowerSupplier CLOVERS = registerWildflowerBlock("clovers", false, true);
 
 
-    private static WildflowerSupplier registerWildflowerBlock(String id, boolean generateGarland) {
-        Supplier<FlowerBedBlock> flowerBedBlockSupplier = registerBlock(id, () -> new FlowerBedBlock(flowerBedProperties(id)));
+    private static WildflowerSupplier registerWildflowerBlock(String id, boolean generateGarland, boolean replaceable) {
+        Supplier<FlowerBedBlock> flowerBedBlockSupplier = registerBlock(id, () -> new FlowerBedBlock(flowerBedProperties(id, replaceable)));
         CommonRegistry.registerItem(id, () -> new BlockItem(flowerBedBlockSupplier.get(), blockItemProperties(id)));
 
         Supplier<FlowerGarlandBlock> flowerGarlandBlockSupplier;
         if (generateGarland) {
             var garlandId = id.replace("flowers", "flower_garland");
-            flowerGarlandBlockSupplier = CommonRegistry.registerBlock(garlandId, () -> new FlowerGarlandBlock(flowerBedProperties(garlandId)));
+            flowerGarlandBlockSupplier = registerBlock(garlandId, () -> new FlowerGarlandBlock(flowerBedProperties(garlandId, replaceable)));
             CommonRegistry.registerItem(garlandId, () -> new FlowerGarlandItem(flowerGarlandBlockSupplier.get(), blockItemProperties(garlandId)
                     //? if >1.21.2
                     .equippableUnswappable(EquipmentSlot.HEAD)
@@ -68,7 +69,7 @@ public class WilderFlowersBlocks {
     }
 
     private static WildflowerSupplier registerWildflowerBlock(String id) {
-        return registerWildflowerBlock(id, true);
+        return registerWildflowerBlock(id, true, false);
     }
 
     static Item.@NotNull Properties blockItemProperties(String id) {
@@ -87,17 +88,31 @@ public class WilderFlowersBlocks {
         return ResourceKey.create(Registries.ITEM, WilderFlowers.locate(id));
     }
 
-    private static BlockBehaviour.Properties flowerBedProperties(String id) {
-        return BlockBehaviour.Properties.of().sound(SoundType.PINK_PETALS)
+    private static BlockBehaviour.Properties flowerBedProperties(String id, boolean replaceable) {
+        var properties = BlockBehaviour.Properties.of().sound(SoundType.PINK_PETALS)
                 //? if >1.21.2 {
                 .setId(blockKey(id)).noCollision()
                 //?} else {
                 /*.noCollission()
                 *///?}
                 ;
+        if (replaceable) {
+            properties = properties.replaceable();
+        }
+        return properties;
     }
 
     public static void touch() {
 
+    }
+
+    public static List<ItemStack> getWildflowerItems() {
+        ArrayList<ItemStack> list = new ArrayList<>();
+        WILDFLOWERS.forEach((wildflowerSupplier -> {
+            list.add(wildflowerSupplier.flowerBedItem().getDefaultInstance());
+            if (wildflowerSupplier.garland().isPresent())
+                list.add(wildflowerSupplier.garlandItem().getDefaultInstance());
+        }));
+        return list.reversed();
     }
 }

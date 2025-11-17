@@ -1,14 +1,19 @@
 package cc.cassian.wilderflowers.neoforge;
 
 //? neoforge {
-/*import cc.cassian.wilderflowers.WilderFlowers;
+/*import cc.cassian.wilderflowers.Platform;
+import cc.cassian.wilderflowers.WilderFlowers;
+import cc.cassian.wilderflowers.compat.SupplementariesCompat;
 import cc.cassian.wilderflowers.registry.WilderFlowersBlocks;
 import cc.cassian.wilderflowers.registry.WilderFlowersParticleTypes;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.Items;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.registries.RegisterEvent;
 
@@ -25,10 +30,12 @@ public class NeoforgeEntrypoint {
     @SubscribeEvent
     public static void buildCreativeModeTabs(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey().equals(CreativeModeTabs.NATURAL_BLOCKS)) {
-            WilderFlowersBlocks.WILDFLOWERS.forEach((wildflowerSupplier -> {
-                event.accept(wildflowerSupplier.flowerBed().get());
-                if (wildflowerSupplier.garland().isPresent())
-                    event.accept(wildflowerSupplier.garland().get().get());
+            WilderFlowersBlocks.getWildflowerItems().forEach((wildflowerSupplier -> {
+                //? if >1.21.4 {
+                event.insertAfter(Items.WILDFLOWERS.getDefaultInstance(), wildflowerSupplier, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                //?} else {
+                /^event.insertAfter(Items.PINK_PETALS.getDefaultInstance(), wildflowerSupplier, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                ^///?}
             }));
         }
     }
@@ -41,6 +48,15 @@ public class NeoforgeEntrypoint {
         if (event.getRegistryKey().equals(Registries.PARTICLE_TYPE)) {
             WilderFlowersParticleTypes.touch();
         }
+    }
+
+    @SubscribeEvent
+    static void commonSetup(FMLCommonSetupEvent event) {
+        //? if <1.21.2 {
+        /^if (Platform.INSTANCE.isModLoaded("supplementaries")) {
+            SupplementariesCompat.register();
+        }
+        ^///?}
     }
 
 

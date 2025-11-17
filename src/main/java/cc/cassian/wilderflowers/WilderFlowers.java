@@ -1,6 +1,11 @@
 package cc.cassian.wilderflowers;
 
+import cc.cassian.wilderflowers.compat.SupplementariesCompat;
 import cc.cassian.wilderflowers.registry.WilderFlowersBlocks;
+//? if <1.21.2 {
+/*import net.minecraft.client.resources.model.ModelResourceLocation;
+*///?}
+
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
@@ -18,7 +23,14 @@ public class WilderFlowers {
         BuiltInRegistries.BLOCK.addAlias(locate("pink_petals"), locate("playful_wildflowers"));
         BuiltInRegistries.ITEM.addAlias(locate("pink_petals"), locate("playful_wildflowers"));
         //?}
+
     }
+
+    //? if <1.21.10 {
+    /*public static ModelResourceLocation locateModel(String s) {
+        return new ModelResourceLocation(locate(MOD_ID, s), "standalone");
+    }
+    *///?}
 
     public static ResourceLocation locate(String s) {
         return locate(MOD_ID, s);

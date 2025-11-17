@@ -101,6 +101,11 @@ dependencies {
     modImplementation("maven.modrinth:lithostitched:${property("deps.lithostitched")}")
     include("maven.modrinth:lithostitched:${property("deps.lithostitched")}")
 
+    if (hasProperty("deps.supplementaries")) {
+        modImplementation("maven.modrinth:supplementaries:fabric_${property("deps.supplementaries")}")
+        modImplementation("maven.modrinth:moonlight:${property("deps.moonlight")}-fabric")
+    }
+
     val modules = listOf("transitive-access-wideners-v1", "registry-sync-v0", "resource-loader-v0")
     for (it in modules) modImplementation(fabricApi.module("fabric-$it", property("deps.fabric_api") as String))
 }

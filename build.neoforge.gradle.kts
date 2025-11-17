@@ -113,6 +113,12 @@ dependencies {
 
     implementation("maven.modrinth:lithostitched:${property("deps.lithostitched")}")
     jarJar("maven.modrinth:lithostitched:${property("deps.lithostitched")}")
+
+    if (hasProperty("deps.supplementaries")) {
+        implementation("maven.modrinth:supplementaries:neoforge_${property("deps.supplementaries")}")
+        implementation("maven.modrinth:moonlight:${property("deps.moonlight")}-neoforge")
+    }
+
 }
 
 

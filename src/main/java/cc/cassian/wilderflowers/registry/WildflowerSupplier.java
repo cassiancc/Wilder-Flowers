@@ -28,6 +28,10 @@ public record WildflowerSupplier(String blockID, Supplier<FlowerBedBlock> flower
         return pottedBlock;
     }
 
+    public Item flowerBedItem() {
+        return flowerbed.get().asItem();
+    }
+
     public Item garlandItem() {
         return garland.get().get().asItem();
     }

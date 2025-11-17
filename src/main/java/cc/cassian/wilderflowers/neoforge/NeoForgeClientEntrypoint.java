@@ -1,7 +1,8 @@
 package cc.cassian.wilderflowers.neoforge;
 //? if neoforge {
 
-/*import cc.cassian.wilderflowers.client.particle.FlowerPetalParticle;
+/*import cc.cassian.wilderflowers.WilderFlowers;
+import cc.cassian.wilderflowers.client.particle.FlowerPetalParticle;
 import cc.cassian.wilderflowers.events.FlowerGarlandEvent;
 import cc.cassian.wilderflowers.registry.WilderFlowersBlocks;
 import cc.cassian.wilderflowers.registry.WilderFlowersItemProperties;
@@ -14,6 +15,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.ClientTickEvent;
+import net.neoforged.neoforge.client.event.ModelEvent;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 
@@ -52,14 +54,16 @@ public class NeoForgeClientEntrypoint {
         /^FlowerGarlandEvent.tick(Minecraft.getInstance());^/
     }
 
-//    @SubscribeEvent
-//    public static void onModelBake(ModelEvent.RegisterStandalone event) {
-//        // This should probably be extracted into a handler of some kind
-//        event.register(WilderFlowers.locate("block/cheery_wildflowers_potted"));
-//        event.register(WilderFlowers.locate("block/moody_wildflowers_potted"));
-//        event.register(WilderFlowers.locate("block/playful_wildflowers_potted"));
-//        event.register(WilderFlowers.locate("block/hopeful_wildflowers_potted"));
-//    }
+    //? if <1.21.2 {
+    /^@SubscribeEvent
+    public static void onModelBake(ModelEvent.RegisterAdditional event) {
+        // This should probably be extracted into a handler of some kind
+        event.register(WilderFlowers.locateModel("block/cheery_wildflowers_potted"));
+        event.register(WilderFlowers.locateModel("block/moody_wildflowers_potted"));
+        event.register(WilderFlowers.locateModel("block/playful_wildflowers_potted"));
+        event.register(WilderFlowers.locateModel("block/hopeful_wildflowers_potted"));
+    }
+    ^///?}
 }
 
 *///?}
