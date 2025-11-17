@@ -22,16 +22,15 @@ public class FabricClientEntrypoint implements ClientModInitializer {
                 return 9551193;
             }
             return 9551193;
-        }), WilderFlowersBlocks.MOODY_WILDFLOWERS.flowerBed().get(), WilderFlowersBlocks.CHEERY_WILDFLOWERS.flowerBed().get(), WilderFlowersBlocks.HOPEFUL_WILDFLOWERS.flowerBed().get(), WilderFlowersBlocks.PLAYFUL_WILDFLOWERS.flowerBed().get());
+        }), WilderFlowersBlocks.MOODY_WILDFLOWERS.flowerBed().get(), WilderFlowersBlocks.CHEERY_WILDFLOWERS.flowerBed().get(), WilderFlowersBlocks.HOPEFUL_WILDFLOWERS.flowerBed().get(), WilderFlowersBlocks.PLAYFUL_WILDFLOWERS.flowerBed().get(), WilderFlowersBlocks.CLOVERS.flowerBed().get());
 
     }
 
     private void cutout(WildflowerSupplier wildflowerSupplier) {
-        BlockRenderLayerMap.putBlocks(ChunkSectionLayer.CUTOUT, wildflowerSupplier.flowerBed().get(), wildflowerSupplier.garland().get(), wildflowerSupplier.pot().get());
-    }
-
-    private void foliage(WildflowerSupplier wildflowerSupplier) {
-        BlockRenderLayerMap.putBlocks(ChunkSectionLayer.CUTOUT, wildflowerSupplier.flowerBed().get(), wildflowerSupplier.garland().get(), wildflowerSupplier.pot().get());
+        BlockRenderLayerMap.putBlocks(ChunkSectionLayer.CUTOUT, wildflowerSupplier.flowerBed().get(), wildflowerSupplier.pot().get());
+        if (wildflowerSupplier.garland().isPresent()) {
+            BlockRenderLayerMap.putBlocks(ChunkSectionLayer.CUTOUT, wildflowerSupplier.garland().get().get());
+        }
     }
 
 }

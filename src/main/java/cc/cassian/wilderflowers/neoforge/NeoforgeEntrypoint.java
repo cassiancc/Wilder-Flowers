@@ -4,6 +4,7 @@ package cc.cassian.wilderflowers.neoforge;
 /*import cc.cassian.wilderflowers.WilderFlowers;
 import cc.cassian.wilderflowers.registry.WilderFlowersBlocks;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
@@ -22,10 +23,11 @@ public class NeoforgeEntrypoint {
 
     @SubscribeEvent
     public static void buildCreativeModeTabs(BuildCreativeModeTabContentsEvent event) {
-        if (event.getTabKey().equals(Registries.BLOCK)) {
+        if (event.getTabKey().equals(CreativeModeTabs.NATURAL_BLOCKS)) {
             WilderFlowersBlocks.WILDFLOWERS.forEach((wildflowerSupplier -> {
                 event.accept(wildflowerSupplier.flowerBed().get());
-                event.accept(wildflowerSupplier.garland().get());
+                if (wildflowerSupplier.garland().isPresent())
+                    event.accept(wildflowerSupplier.garland().get().get());
             }));
         }
     }

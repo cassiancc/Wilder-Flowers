@@ -1,0 +1,6 @@
+{
+  "type": "lithostitched:add_features",
+  "biomes": "#wilderflowers:clovers_biomes",
+  "features": "wilderflowers:clovers",
+  "step": "vegetal_decoration"
+}

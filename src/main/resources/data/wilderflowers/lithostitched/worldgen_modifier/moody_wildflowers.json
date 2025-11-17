@@ -1,0 +1,6 @@
+{
+  "type": "lithostitched:add_features",
+  "biomes": "#wilderflowers:moody_wildflowers_biomes",
+  "features": "wilderflowers:moody_wildflowers",
+  "step": "vegetal_decoration"
+}

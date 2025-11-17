@@ -74,14 +74,17 @@ neoForge {
 
 dependencies {
     // McQoy
-    implementation("folk.sisby:kaleido-config:${property("deps.kaleido")}")
-    jarJar("folk.sisby:kaleido-config:${property("deps.kaleido")}")
-    implementation("maven.modrinth:mcqoy:${property("deps.mcqoy")}")
+//    implementation("folk.sisby:kaleido-config:${property("deps.kaleido")}")
+//    jarJar("folk.sisby:kaleido-config:${property("deps.kaleido")}")
+//    implementation("maven.modrinth:mcqoy:${property("deps.mcqoy")}")
 
     // YACL  - required by McQoy
     if (hasProperty("deps.yacl")) {
         runtimeOnly("dev.isxander:yet-another-config-lib:${property("deps.yacl")}-neoforge")
     }
+
+    implementation("maven.modrinth:lithostitched:${property("deps.lithostitched")}")
+    jarJar("maven.modrinth:lithostitched:${property("deps.lithostitched")}")
 }
 
 

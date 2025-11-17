@@ -75,7 +75,13 @@ public class FlowerGarlandBlock extends Block {
     public boolean propagatesSkylightDown(BlockState state, BlockGetter level, BlockPos pos) {
         return true;
     }
-    *///?}
+    *///?} else {
+
+    @Override
+    protected boolean propagatesSkylightDown(BlockState state) {
+        return true;
+    }
+    //?}
 
     @Override
     public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {

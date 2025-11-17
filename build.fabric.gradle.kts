@@ -60,9 +60,9 @@ dependencies {
     modImplementation("net.fabricmc.fabric-api:fabric-api:${property("deps.fabric_api")}")
 
     // Kaleido + McQoy
-    implementation("folk.sisby:kaleido-config:${property("deps.kaleido")}")
-    include("folk.sisby:kaleido-config:${property("deps.kaleido")}")
-    modLocalRuntime("maven.modrinth:mcqoy:${property("deps.mcqoy")}")
+//    implementation("folk.sisby:kaleido-config:${property("deps.kaleido")}")
+//    include("folk.sisby:kaleido-config:${property("deps.kaleido")}")
+//    modLocalRuntime("maven.modrinth:mcqoy:${property("deps.mcqoy")}")
 
     // Mod Menu - required by McQoy
     if (hasProperty("deps.modmenu"))
@@ -76,6 +76,9 @@ dependencies {
     if (hasProperty("deps.eiv")) {
         modImplementation("maven.modrinth:eiv:${property("deps.eiv")}")
     }
+
+    modImplementation("maven.modrinth:lithostitched:${property("deps.lithostitched")}")
+    include("maven.modrinth:lithostitched:${property("deps.lithostitched")}")
 
     val modules = listOf("transitive-access-wideners-v1", "registry-sync-v0", "resource-loader-v0")
     for (it in modules) modImplementation(fabricApi.module("fabric-$it", property("deps.fabric_api") as String))

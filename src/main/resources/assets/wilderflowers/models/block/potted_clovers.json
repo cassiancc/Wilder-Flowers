@@ -1,0 +1,6 @@
+{
+  "parent": "wilderflowers:block/potted_cheery_wildflowers",
+  "textures": {
+    "3": "wilderflowers:block/clovers_potted"
+  }
+}

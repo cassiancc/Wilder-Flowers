@@ -1,0 +1,20 @@
+{
+  "values": [
+    {
+      "id": "minecraft:flower_forest",
+      "required": false
+    },
+    {
+      "id": "minecraft:meadow",
+      "required": false
+    },
+    {
+      "id": "minecraft:sunflower_plains",
+      "required": false
+    },
+    {
+      "id": "minecraft:sparse_jungle",
+      "required": false
+    }
+  ]
+}

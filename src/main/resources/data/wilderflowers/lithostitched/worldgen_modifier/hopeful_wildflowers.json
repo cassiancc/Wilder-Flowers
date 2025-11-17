@@ -1,0 +1,6 @@
+{
+  "type": "lithostitched:add_features",
+  "biomes": "#wilderflowers:hopeful_wildflowers_biomes",
+  "features": "wilderflowers:hopeful_wildflowers",
+  "step": "vegetal_decoration"
+}

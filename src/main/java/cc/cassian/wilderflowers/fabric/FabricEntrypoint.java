@@ -18,7 +18,8 @@ public class FabricEntrypoint implements ModInitializer {
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.NATURAL_BLOCKS).register((entries -> {
             WilderFlowersBlocks.WILDFLOWERS.forEach((wildflowerSupplier -> {
                 entries.accept(wildflowerSupplier.flowerBed().get());
-                entries.accept(wildflowerSupplier.garland().get());
+                if (wildflowerSupplier.garland().isPresent())
+                    entries.accept(wildflowerSupplier.garland().get().get());
             }));
         }));
     }

@@ -1,0 +1,6 @@
+{
+  "type": "lithostitched:add_features",
+  "biomes": "#wilderflowers:dense_playful_wildflowers_biomes",
+  "features": "wilderflowers:playful_wildflowers_dense",
+  "step": "vegetal_decoration"
+}

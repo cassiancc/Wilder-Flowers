@@ -6,10 +6,12 @@ license = "MIT"
 modId = "wilderflowers"
 displayName = "Wilder Flowers"
 version = "${version}"
-displayURL = ""
-logoFile = "assets/icon.png"
-authors = "cassiancc"
-description = '''Flowers, but better!'''
+displayURL = "https://modrinth.com/mod/wilder-flowers"
+logoFile = "assets/wilderflowers/logo.png"
+authors = "cassiancc, Kobber, ProbablyEkho, DavigJ"
+description = '''
+Adds various wildflowers, clover patches, and flower garlands. Revel in nature's boutique!
+'''
 
 [[dependencies.wilderflowers]]
 modId = "neoforge"

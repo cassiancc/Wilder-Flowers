@@ -3,13 +3,19 @@
   "id": "wilderflowers",
   "name": "Wilder Flowers",
   "version": "${version}",
-  "authors": ["cassiancc"],
+  "authors": [
+    "cassiancc",
+    "Kobber",
+    "ProbablyEkho",
+    "DavigJ"
+  ],
   "contact": {
-    "sources": "",
-    "issues": ""
+    "homepage": "https://modrinth.com/mod/wilder-flowers",
+    "sources": "https://github.com/cassiancc/Wilder-Flowers",
+    "issues": "https://github.com/cassiancc/Wilder-Flowers/issues"
   },
-  "description": "Flowers, but better!",
-  "icon": "assets/icon.png",
+  "description": "Adds various wildflowers, clover patches, and flower garlands. Revel in nature's boutique!",
+  "icon": "assets/wilderflowers/logo.png",
   "license": "MIT",
   "environment": "*",
   "entrypoints": {
@@ -21,6 +27,7 @@
     ]
   },
   "depends": {
-    "fabric-api": "*"
+    "fabric-api": "*",
+    "lithostitched": "*"
   }
 }
