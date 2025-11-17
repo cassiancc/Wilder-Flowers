@@ -2,18 +2,18 @@
   "type": "create:milling",
   "ingredients": [
     {
-      "item": "wilderflowers:hopeful_wildflowers"
+      "item": "wilderflowers:pink_petals"
     }
   ],
-  "processing_time": 50,
+  "processingTime": 50,
   "results": [
     {
       "count": 2,
-      "id": "minecraft:pink_dye"
+      "item": "minecraft:pink_dye"
     },
     {
       "chance": 0.1,
-      "id": "minecraft:light_blue_dye"
+      "item": "minecraft:pink_dye"
     }
   ],
   "fabric:load_conditions": [

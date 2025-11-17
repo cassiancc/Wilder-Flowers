@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "pink_dye",
+  "ingredients": [
+    [
+      {
+        "item": "wilderflowers:playful_wildflowers"
+      },
+      {
+        "item": "wilderflowers:playful_wildflower_garland"
+      }
+    ]
+  ],
+  "result": {
+    "count": 1,
+    "item": "minecraft:pink_dye"
+  }
+}

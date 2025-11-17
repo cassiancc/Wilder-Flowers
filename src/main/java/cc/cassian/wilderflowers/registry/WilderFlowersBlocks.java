@@ -49,7 +49,7 @@ public class WilderFlowersBlocks {
             flowerGarlandBlockSupplier = null;
         }
 
-        Supplier<Block> flowerPotSupplier = registerBlock("potted_" + id, () -> new FlowerPotBlock(flowerBedBlockSupplier.get(), BlockBehaviour.Properties.ofFullCopy(Blocks.FLOWER_POT)
+        Supplier<Block> flowerPotSupplier = registerBlock("potted_" + id, () -> new FlowerPotBlock(flowerBedBlockSupplier.get(), copy(Blocks.FLOWER_POT)
                 //? if >1.21.2
                 .setId(blockKey("potted_" + id))
         ));
@@ -57,6 +57,14 @@ public class WilderFlowersBlocks {
         WildflowerSupplier wildflowerSupplier = new WildflowerSupplier(id, flowerBedBlockSupplier, Optional.ofNullable(flowerGarlandBlockSupplier), flowerPotSupplier);
         WilderFlowersBlocks.WILDFLOWERS.add(wildflowerSupplier);
         return wildflowerSupplier;
+    }
+
+    private static BlockBehaviour.Properties copy(Block flowerPot) {
+        //? if >1.21 {
+        return BlockBehaviour.Properties.ofFullCopy(flowerPot);
+        //?} else {
+        /*return BlockBehaviour.Properties.copy(flowerPot);
+        *///?}
     }
 
     private static WildflowerSupplier registerWildflowerBlock(String id) {

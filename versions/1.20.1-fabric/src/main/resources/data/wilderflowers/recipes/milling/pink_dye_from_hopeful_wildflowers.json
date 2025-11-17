@@ -5,15 +5,15 @@
       "item": "wilderflowers:hopeful_wildflowers"
     }
   ],
-  "processing_time": 50,
+  "processingTime": 50,
   "results": [
     {
       "count": 2,
-      "id": "minecraft:pink_dye"
+      "item": "minecraft:pink_dye"
     },
     {
       "chance": 0.1,
-      "id": "minecraft:light_blue_dye"
+      "item": "minecraft:light_blue_dye"
     }
   ],
   "fabric:load_conditions": [

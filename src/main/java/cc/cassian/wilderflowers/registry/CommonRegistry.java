@@ -3,7 +3,6 @@ package cc.cassian.wilderflowers.registry;
 import cc.cassian.wilderflowers.WilderFlowers;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
-import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.sounds.SoundEvent;
@@ -23,10 +22,6 @@ public class CommonRegistry {
         T object = supplier.get();
         Registry.register(reg, WilderFlowers.locate(name), object);
         return () -> object;
-    }
-
-    public static <T> Supplier<DataComponentType<T>> registerComponentType(String name, UnaryOperator<DataComponentType.Builder<T>> builderOperator) {
-        return register(name, () -> (builderOperator.apply(DataComponentType.builder())).build(), BuiltInRegistries.DATA_COMPONENT_TYPE);
     }
 
     public static <B extends Item> Supplier<B> registerItem(String name, Supplier<B> supplier) {

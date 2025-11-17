@@ -2,7 +2,6 @@ package cc.cassian.wilderflowers.client.particle;
 
 import com.mojang.blaze3d.vertex.VertexConsumer;
 //? if >1.20 {
-import net.minecraft.client.renderer.state.QuadParticleRenderState;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.util.RandomSource;
 import org.jetbrains.annotations.Nullable;
@@ -11,6 +10,9 @@ import org.joml.Vector3f;
 //?} else {
 /*import com.mojang.math.Vector3f;
 *///?}
+//? if >1.21.2 {
+import net.minecraft.client.renderer.state.QuadParticleRenderState;
+//?}
 import net.minecraft.client.Camera;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.*;
@@ -101,7 +103,7 @@ public class FlowerPetalParticle extends
         float u0 = this.getU0(), u1 = this.getU1();
         float v0 = this.getV0(), v1 = this.getV1();
 
-        //? if >1.20 {
+        //? if >1.21 {
         buffer.addVertex(corners[0].x(), corners[0].y(), corners[0].z()).setUv(u1, v1).setColor(rCol, gCol, bCol, alpha).setLight(light);
         buffer.addVertex(corners[1].x(), corners[1].y(), corners[1].z()).setUv(u1, v0).setColor(rCol, gCol, bCol, alpha).setLight(light);
         buffer.addVertex(corners[2].x(), corners[2].y(), corners[2].z()).setUv(u0, v0).setColor(rCol, gCol, bCol, alpha).setLight(light);

@@ -14,8 +14,10 @@ public class WilderFlowers {
 
     public static void init() {
         LOG.info("Initializing {} on {}", MOD_ID, Platform.INSTANCE.loader());
+        //? if >1.21 {
         BuiltInRegistries.BLOCK.addAlias(locate("pink_petals"), locate("playful_wildflowers"));
         BuiltInRegistries.ITEM.addAlias(locate("pink_petals"), locate("playful_wildflowers"));
+        //?}
     }
 
     public static ResourceLocation locate(String s) {
@@ -23,6 +25,10 @@ public class WilderFlowers {
     }
 
     public static ResourceLocation locate(String namespace, String s) {
+        //? if >1.21 {
         return ResourceLocation.fromNamespaceAndPath(namespace, s);
+        //?} else {
+        /*return new ResourceLocation(namespace, s);
+        *///?}
     }
 }
