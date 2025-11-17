@@ -3,6 +3,7 @@ package cc.cassian.wilderflowers.neoforge;
 //? neoforge {
 /*import cc.cassian.wilderflowers.WilderFlowers;
 import cc.cassian.wilderflowers.registry.WilderFlowersBlocks;
+import cc.cassian.wilderflowers.registry.WilderFlowersParticleTypes;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -36,6 +37,9 @@ public class NeoforgeEntrypoint {
     public static void register(RegisterEvent event) {
         if (event.getRegistryKey().equals(Registries.BLOCK)) {
             WilderFlowersBlocks.touch();
+        }
+        if (event.getRegistryKey().equals(Registries.PARTICLE_TYPE)) {
+            WilderFlowersParticleTypes.touch();
         }
     }
 

@@ -1,0 +1,29 @@
+{
+  "type": "create:milling",
+  "ingredients": [
+    {
+      "item": "wilderflowers:cheery_wildflowers"
+    }
+  ],
+  "processing_time": 50,
+  "results": [
+    {
+      "count": 1,
+      "id": "minecraft:yellow_dye"
+    },
+    {
+      "count": 1,
+      "id": "minecraft:white_dye"
+    },
+    {
+      "chance": 0.05,
+      "id": "minecraft:orange_dye"
+    }
+  ],
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ]
+}

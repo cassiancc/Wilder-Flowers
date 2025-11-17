@@ -104,11 +104,16 @@ public class FlowerBedBlock
             return singleEncompassing(voxelShape);
         });
     }
-    *///?} else {
+    *///?} else if >1.21.2 {
     extends net.minecraft.world.level.block.FlowerBedBlock {
     public FlowerBedBlock(Properties properties) {
         super(properties);
     }
 
-    //?}
+    //?} else {
+    /*extends PinkPetalsBlock {
+    public FlowerBedBlock(Properties properties) {
+            super(properties);
+        }
+    *///?}
 }

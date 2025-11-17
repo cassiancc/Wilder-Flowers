@@ -12,7 +12,6 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.*;
-import net.minecraft.world.level.redstone.Orientation;
 import net.minecraft.world.phys.shapes.*;
 import org.jetbrains.annotations.Nullable;
 
@@ -70,7 +69,7 @@ public class FlowerGarlandBlock extends Block {
         return this.shapesCache.get(state);
     }
 
-    //? if <1.20 {
+    //? if <1.21.2 {
     /*@Override
     public boolean propagatesSkylightDown(BlockState state, BlockGetter level, BlockPos pos) {
         return true;
@@ -146,7 +145,7 @@ public class FlowerGarlandBlock extends Block {
         return state;
     }
 
-    //? if <1.20 {
+    //? if <1.21.2 {
     /*@Override
     public BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor level, BlockPos currentPos, BlockPos neighborPos) {
         if (direction.getAxis() == Direction.Axis.Y) {

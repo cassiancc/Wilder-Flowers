@@ -4,6 +4,7 @@ import cc.cassian.wilderflowers.WilderFlowers;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponentType;
+import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.effect.MobEffect;
@@ -54,5 +55,9 @@ public class CommonRegistry {
 
     public static <B extends BlockEntityType<?>> Supplier<B> registerBlockEntity(String name, Supplier<B> supplier) {
         return register(name, supplier, BuiltInRegistries.BLOCK_ENTITY_TYPE);
+    }
+
+    public static Supplier<SimpleParticleType> registerParticleType(String name, Supplier<SimpleParticleType> supplier) {
+        return register(name, supplier, BuiltInRegistries.PARTICLE_TYPE);
     }
 }

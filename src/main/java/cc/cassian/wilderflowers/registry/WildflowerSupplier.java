@@ -2,6 +2,7 @@ package cc.cassian.wilderflowers.registry;
 
 import cc.cassian.wilderflowers.blocks.FlowerBedBlock;
 import cc.cassian.wilderflowers.blocks.FlowerGarlandBlock;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -25,5 +26,9 @@ public record WildflowerSupplier(String blockID, Supplier<FlowerBedBlock> flower
 
     public Supplier<Block> pot() {
         return pottedBlock;
+    }
+
+    public Item garlandItem() {
+        return garland.get().get().asItem();
     }
 }

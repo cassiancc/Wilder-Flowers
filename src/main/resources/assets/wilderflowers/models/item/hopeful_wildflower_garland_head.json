@@ -1,6 +1,7 @@
 {
   "parent": "wilderflowers:block/cheery_wildflower_garland_head",
   "textures": {
+    "front": "wilderflowers:item/hopeful_wildflower_garland",
     "side": "wilderflowers:item/hopeful_wildflower_garland"
   }
 }
