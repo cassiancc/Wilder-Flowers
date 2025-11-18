@@ -26,9 +26,10 @@ public class WilderFlowersItemProperties {
     };
 
     public static void register() {
-        ItemProperties.register(WilderFlowersBlocks.CHEERY_WILDFLOWERS.garlandItem(), WilderFlowers.locate("equipped"), FLOWER_GARLAND_EQUIPPED);
+        //? <1.21.5
+        /^ItemProperties.register(WilderFlowersBlocks.CHEERY_WILDFLOWERS.garlandItem(), WilderFlowers.locate("equipped"), FLOWER_GARLAND_EQUIPPED);^/
         ItemProperties.register(WilderFlowersBlocks.HOPEFUL_WILDFLOWERS.garlandItem(), WilderFlowers.locate("equipped"), FLOWER_GARLAND_EQUIPPED);
-        ItemProperties.register(WilderFlowersBlocks.PLAYFUL_WILDFLOWERS.garlandItem(), WilderFlowers.locate("equipped"), FLOWER_GARLAND_EQUIPPED);
+//        ItemProperties.register(WilderFlowersBlocks.PLAYFUL_WILDFLOWERS.garlandItem(), WilderFlowers.locate("equipped"), FLOWER_GARLAND_EQUIPPED);
         ItemProperties.register(WilderFlowersBlocks.MOODY_WILDFLOWERS.garlandItem(), WilderFlowers.locate( "equipped"), FLOWER_GARLAND_EQUIPPED);
     }
     *///?}

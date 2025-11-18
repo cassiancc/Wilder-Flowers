@@ -2,6 +2,7 @@
   "parent": "wilderflowers:block/cheery_wildflower_garland_head",
   "textures": {
     "front": "wilderflowers:item/moody_wildflower_garland",
-    "side": "wilderflowers:item/moody_wildflower_garland"
+    "side": "wilderflowers:item/moody_wildflower_garland",
+    "particle": "wilderflowers:item/moody_wildflower_garland"
   }
 }

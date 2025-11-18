@@ -102,7 +102,7 @@ dependencies {
     include("maven.modrinth:lithostitched:${property("deps.lithostitched")}")
 
     if (hasProperty("deps.supplementaries")) {
-        modImplementation("maven.modrinth:supplementaries:fabric_${property("deps.supplementaries")}")
+        modImplementation("maven.modrinth:supplementaries:${property("deps.supplementaries")}")
         modImplementation("maven.modrinth:moonlight:${property("deps.moonlight")}-fabric")
     }
 

@@ -1,0 +1,16 @@
+{
+  "values": {
+    "wilderflowers:cheery_wildflowers": {
+      "chance": 0.3
+    },
+    "wilderflowers:moody_wildflowers": {
+      "chance": 0.3
+    },
+    "wilderflowers:hopeful_wildflowers": {
+      "chance": 0.3
+    },
+    "wilderflowers:clovers": {
+      "chance": 0.3
+    }
+  }
+}

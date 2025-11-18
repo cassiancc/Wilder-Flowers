@@ -1,0 +1,6 @@
+{
+  "type": "lithostitched:add_features",
+  "biomes": "#wilderflowers:cheery_wildflowers_biomes",
+  "features": "wilderflowers:cheery_wildflowers",
+  "step": "vegetal_decoration"
+}

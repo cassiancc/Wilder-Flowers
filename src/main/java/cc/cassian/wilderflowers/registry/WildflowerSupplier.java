@@ -9,10 +9,10 @@ import net.minecraft.world.level.block.state.BlockState;
 import java.util.Optional;
 import java.util.function.Supplier;
 
-public record WildflowerSupplier(String blockID, Supplier<FlowerBedBlock> flowerbed,
+public record WildflowerSupplier(String blockID, Supplier<Block> flowerbed,
                                  Optional<Supplier<FlowerGarlandBlock>> garland, Supplier<Block> pottedBlock) {
 
-    public Supplier<FlowerBedBlock> flowerBed() {
+    public Supplier<Block> flowerBed() {
         return flowerbed;
     }
 

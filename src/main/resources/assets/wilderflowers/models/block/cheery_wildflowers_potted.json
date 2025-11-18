@@ -1,7 +1,8 @@
 {
 	"textures": {
-		"1": "wilderflowers:block/cheery_wildflowers_potted"
-	},
+		"1": "wilderflowers:block/cheery_wildflowers_potted",
+        "particle": "wilderflowers:block/cheery_wildflowers_potted"
+    },
 	"elements": [
 		{
 			"from": [4, 1.1, 4],

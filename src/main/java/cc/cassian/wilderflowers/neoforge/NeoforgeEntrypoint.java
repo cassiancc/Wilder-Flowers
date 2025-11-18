@@ -7,6 +7,10 @@ import cc.cassian.wilderflowers.compat.SupplementariesCompat;
 import cc.cassian.wilderflowers.registry.WilderFlowersBlocks;
 import cc.cassian.wilderflowers.registry.WilderFlowersParticleTypes;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.packs.PackType;
+import net.minecraft.server.packs.repository.Pack;
+import net.minecraft.server.packs.repository.PackSource;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Items;
@@ -14,6 +18,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.event.AddPackFindersEvent;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.registries.RegisterEvent;
 
@@ -28,7 +33,7 @@ public class NeoforgeEntrypoint {
     }
 
     @SubscribeEvent
-    public static void buildCreativeModeTabs(BuildCreativeModeTabContentsEvent event) {
+    static void buildCreativeModeTabs(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey().equals(CreativeModeTabs.NATURAL_BLOCKS)) {
             WilderFlowersBlocks.getWildflowerItems().forEach((wildflowerSupplier -> {
                 //? if >1.21.4 {
@@ -41,7 +46,7 @@ public class NeoforgeEntrypoint {
     }
 
     @SubscribeEvent
-    public static void register(RegisterEvent event) {
+    static void register(RegisterEvent event) {
         if (event.getRegistryKey().equals(Registries.BLOCK)) {
             WilderFlowersBlocks.touch();
         }
@@ -57,6 +62,11 @@ public class NeoforgeEntrypoint {
             SupplementariesCompat.register();
         }
         ^///?}
+    }
+
+    @SubscribeEvent
+    static void addResourcePack(AddPackFindersEvent event) {
+        event.addPackFinders(WilderFlowers.locate("resourcepacks/wildflowers"), PackType.CLIENT_RESOURCES, Component.literal("Wilder Flowers"), PackSource.BUILT_IN, true, Pack.Position.TOP);
     }
 
 

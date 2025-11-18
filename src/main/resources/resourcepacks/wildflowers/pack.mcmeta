@@ -1,0 +1,12 @@
+{
+  "pack": {
+    "description": "Replace vanilla flower beds with Wildflowers.",
+    "min_format": 15,
+    "max_format": 70,
+    "supported_formats": [
+      15,
+      70
+    ],
+    "pack_format": 15
+  }
+}

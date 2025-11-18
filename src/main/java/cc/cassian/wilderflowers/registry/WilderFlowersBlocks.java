@@ -28,16 +28,29 @@ public class WilderFlowersBlocks {
     public static ArrayList<WildflowerSupplier> WILDFLOWERS = new ArrayList<>();
 
     public static final WildflowerSupplier HOPEFUL_WILDFLOWERS = registerWildflowerBlock("hopeful_wildflowers");
-    public static final WildflowerSupplier CHEERY_WILDFLOWERS = registerWildflowerBlock("cheery_wildflowers");
+    public static final WildflowerSupplier CHEERY_WILDFLOWERS = registerWildflowerBlock("cheery_wildflowers", true, false,
+            //? if >1.21.5 {
+            Blocks.WILDFLOWERS
+            //?} else {
+            /*null
+            *///?}
+    );
     public static final WildflowerSupplier MOODY_WILDFLOWERS = registerWildflowerBlock("moody_wildflowers");
-    public static final WildflowerSupplier PLAYFUL_WILDFLOWERS = registerWildflowerBlock("playful_wildflowers");
-    public static final WildflowerSupplier CLOVERS = registerWildflowerBlock("clovers", false, true);
+    public static final WildflowerSupplier PLAYFUL_WILDFLOWERS = registerWildflowerBlock("playful_wildflowers", true, false, Blocks.PINK_PETALS);
+    public static final WildflowerSupplier CLOVERS = registerWildflowerBlock("clovers", false, true, null);
 
 
-    private static WildflowerSupplier registerWildflowerBlock(String id, boolean generateGarland, boolean replaceable) {
-        Supplier<FlowerBedBlock> flowerBedBlockSupplier = registerBlock(id, () -> new FlowerBedBlock(flowerBedProperties(id, replaceable)));
-        CommonRegistry.registerItem(id, () -> new BlockItem(flowerBedBlockSupplier.get(), blockItemProperties(id)));
+    private static WildflowerSupplier registerWildflowerBlock(String id, boolean generateGarland, boolean replaceable, Block flowerbed) {
+        // Register flowerbed or use vanilla variant.
+        Supplier<Block> flowerBedBlockSupplier;
+        if (flowerbed == null) {
+            flowerBedBlockSupplier = registerBlock(id, () -> new FlowerBedBlock(flowerBedProperties(id, replaceable)));
+            CommonRegistry.registerItem(id, () -> new BlockItem(flowerBedBlockSupplier.get(), blockItemProperties(id)));
+        } else {
+            flowerBedBlockSupplier =  ()->flowerbed;
+        }
 
+        // Register flower garland (if needed)
         Supplier<FlowerGarlandBlock> flowerGarlandBlockSupplier;
         if (generateGarland) {
             var garlandId = id.replace("flowers", "flower_garland");
@@ -50,11 +63,13 @@ public class WilderFlowersBlocks {
             flowerGarlandBlockSupplier = null;
         }
 
+        // Register flower pot.
         Supplier<Block> flowerPotSupplier = registerBlock("potted_" + id, () -> new FlowerPotBlock(flowerBedBlockSupplier.get(), copy(Blocks.FLOWER_POT)
                 //? if >1.21.2
                 .setId(blockKey("potted_" + id))
         ));
 
+        // Return wildflower block set.
         WildflowerSupplier wildflowerSupplier = new WildflowerSupplier(id, flowerBedBlockSupplier, Optional.ofNullable(flowerGarlandBlockSupplier), flowerPotSupplier);
         WilderFlowersBlocks.WILDFLOWERS.add(wildflowerSupplier);
         return wildflowerSupplier;
@@ -69,7 +84,7 @@ public class WilderFlowersBlocks {
     }
 
     private static WildflowerSupplier registerWildflowerBlock(String id) {
-        return registerWildflowerBlock(id, true, false);
+        return registerWildflowerBlock(id, true, false, null);
     }
 
     static Item.@NotNull Properties blockItemProperties(String id) {
@@ -112,7 +127,9 @@ public class WilderFlowersBlocks {
     public static List<ItemStack> getWildflowerItems() {
         ArrayList<ItemStack> list = new ArrayList<>();
         WILDFLOWERS.forEach((wildflowerSupplier -> {
-            list.add(wildflowerSupplier.flowerBedItem().getDefaultInstance());
+            if (wildflowerSupplier.flowerBedItem().builtInRegistryHolder().key().location().getNamespace().equals("wilderflowers")) {
+                list.add(wildflowerSupplier.flowerBedItem().getDefaultInstance());
+            }
             if (wildflowerSupplier.garland().isPresent())
                 list.add(wildflowerSupplier.garlandItem().getDefaultInstance());
         }));
