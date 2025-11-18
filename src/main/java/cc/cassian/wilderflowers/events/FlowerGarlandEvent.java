@@ -27,10 +27,8 @@ public class FlowerGarlandEvent {
     private static final Map<Item, SimpleParticleType> PARTICLES = new HashMap<>();
 
     static {
-        //? <1.21.5
-        /*PARTICLES.put(WilderFlowersBlocks.CHEERY_WILDFLOWERS.garlandItem(), WilderFlowersParticleTypes.CHEERY_PETAL.get());*/
-        //? <1.20
-        /*PARTICLES.put(WilderFlowersBlocks.PLAYFUL_WILDFLOWERS.garlandItem(), WilderFlowersParticleTypes.PLAYFUL_PETAL.get());*/
+        PARTICLES.put(WilderFlowersBlocks.CHEERY_WILDFLOWERS.garlandItem(), WilderFlowersParticleTypes.CHEERY_PETAL.get());
+        PARTICLES.put(WilderFlowersBlocks.PLAYFUL_WILDFLOWERS.garlandItem(), WilderFlowersParticleTypes.PLAYFUL_PETAL.get());
         PARTICLES.put(WilderFlowersBlocks.HOPEFUL_WILDFLOWERS.garlandItem(), WilderFlowersParticleTypes.HOPEFUL_PETAL.get());
         PARTICLES.put(WilderFlowersBlocks.MOODY_WILDFLOWERS.garlandItem(), WilderFlowersParticleTypes.MOODY_PETAL.get());
     }
