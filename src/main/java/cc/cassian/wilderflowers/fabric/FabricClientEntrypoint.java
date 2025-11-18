@@ -33,7 +33,7 @@ public class FabricClientEntrypoint implements ClientModInitializer {
             }
             return 9551193;
         }), WilderFlowersBlocks.MOODY_WILDFLOWERS.flowerBed().get(), WilderFlowersBlocks.CHEERY_WILDFLOWERS.flowerBed().get(), WilderFlowersBlocks.HOPEFUL_WILDFLOWERS.flowerBed().get(), WilderFlowersBlocks.PLAYFUL_WILDFLOWERS.flowerBed().get(), WilderFlowersBlocks.CLOVERS.flowerBed().get());
-        //? if <1.21.2
+        //? if <1.21.9
         /*ClientTickEvents.END_CLIENT_TICK.register((FlowerGarlandEvent::tick));*/
         registerParticleTypes(ParticleFactoryRegistry.getInstance());
     }

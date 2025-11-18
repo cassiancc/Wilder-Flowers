@@ -26,7 +26,7 @@ public class WilderFlowers {
 
     }
 
-    //? if <1.21.10 {
+    //? if <1.21.8 {
     /*public static ModelResourceLocation locateModel(String s) {
         return new ModelResourceLocation(locate(MOD_ID, s), "standalone");
     }

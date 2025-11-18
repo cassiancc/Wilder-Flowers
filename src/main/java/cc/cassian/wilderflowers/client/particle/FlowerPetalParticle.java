@@ -10,7 +10,7 @@ import org.joml.Vector3f;
 //?} else {
 /*import com.mojang.math.Vector3f;
 *///?}
-//? if >1.21.2 {
+//? if >1.21.8 {
 import net.minecraft.client.renderer.state.QuadParticleRenderState;
 //?}
 import net.minecraft.client.Camera;
@@ -22,7 +22,7 @@ import net.minecraft.world.phys.Vec3;
 
 
 public class FlowerPetalParticle extends
-        //? if >1.21.2 {
+        //? if >1.21.8 {
         SingleQuadParticle
         //?} else {
         /*TextureSheetParticle
@@ -34,11 +34,11 @@ public class FlowerPetalParticle extends
 
     protected FlowerPetalParticle(ClientLevel level, double x, double y, double z,
                                   double vx, double vy, double vz
-                                  //? if >1.21.2
+                                  //? if >1.21.8
     ,TextureAtlasSprite sprite
     ) {
         super(level, x, y, z, vx, vy, vz
-                //? if >1.21.2
+                //? if >1.21.8
                 , sprite
         );
         this.lifetime = 100 + this.random.nextInt(20);
@@ -59,7 +59,7 @@ public class FlowerPetalParticle extends
         this.zd = Mth.clamp(this.zd + this.random.nextFloat() / 1000.0F * (this.random.nextBoolean() ? 1 : -1), -0.05F, 0.05F);
     }
 
-    //? if >1.21.2 {
+    //? if >1.21.8 {
     @Override
     protected Layer getLayer() {
         return Layer.TRANSLUCENT;
@@ -71,7 +71,7 @@ public class FlowerPetalParticle extends
     }
     *///?}
 
-    //? if <1.21.2 {
+    //? if <1.21.9 {
     /*@Override
     public void render(VertexConsumer buffer, Camera camera, float partialTicks) {
         Vec3 pos = new Vec3(
@@ -122,7 +122,7 @@ public class FlowerPetalParticle extends
 
         public Provider(SpriteSet sprites) { this.sprites = sprites; }
 
-        //? if >1.21.2 {
+        //? if >1.21.8 {
 
         public @Nullable Particle createParticle(SimpleParticleType particleType, ClientLevel level, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed, RandomSource random) {
             FlowerPetalParticle p = new FlowerPetalParticle(level, x, y, z, xSpeed, ySpeed, zSpeed, sprites.get(random));

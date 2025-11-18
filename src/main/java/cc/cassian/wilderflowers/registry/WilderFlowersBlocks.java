@@ -91,7 +91,10 @@ public class WilderFlowersBlocks {
     private static BlockBehaviour.Properties flowerBedProperties(String id, boolean replaceable) {
         var properties = BlockBehaviour.Properties.of().sound(SoundType.PINK_PETALS)
                 //? if >1.21.2 {
-                .setId(blockKey(id)).noCollision()
+                .setId(blockKey(id))
+                //?}
+                //? if >1.21.9 {
+                .noCollision()
                 //?} else {
                 /*.noCollission()
                 *///?}

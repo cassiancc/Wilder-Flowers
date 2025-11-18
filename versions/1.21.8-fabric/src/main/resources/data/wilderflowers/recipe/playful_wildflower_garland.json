@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": "wilderflowers:playful_wildflowers"
+  },
+  "result": {
+    "id": "wilderflowers:playful_wildflower_garland",
+    "count": 3
+  }
+}
