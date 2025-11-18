@@ -28,6 +28,7 @@
   },
   "depends": {
     "fabric-api": "*",
-    "lithostitched": "*"
+    "lithostitched": "*",
+    "minecraft": "${minecraft}"
   }
 }
