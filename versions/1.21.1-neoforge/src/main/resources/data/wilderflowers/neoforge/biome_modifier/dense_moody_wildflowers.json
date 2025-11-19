@@ -1,5 +1,5 @@
 {
-  "type": "lithostitched:add_features",
+  "type": "neoforge:add_features",
   "biomes": "#wilderflowers:dense_moody_wildflowers_biomes",
   "features": "wilderflowers:moody_wildflowers_dense",
   "step": "vegetal_decoration"

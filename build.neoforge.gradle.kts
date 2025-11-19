@@ -111,14 +111,18 @@ dependencies {
         runtimeOnly("dev.isxander:yet-another-config-lib:${property("deps.yacl")}-neoforge")
     }
 
-    implementation("maven.modrinth:lithostitched:${property("deps.lithostitched")}")
-    jarJar("maven.modrinth:lithostitched:${property("deps.lithostitched")}")
-
     if (hasProperty("deps.supplementaries")) {
         implementation("maven.modrinth:supplementaries:neoforge_${property("deps.supplementaries")}")
         implementation("maven.modrinth:moonlight:${property("deps.moonlight")}-neoforge")
     }
 
+}
+
+stonecutter {
+    replacements.string {
+        direction = eval(current.version, ">1.21.10")
+        replace("ResourceLocation", "Identifier")
+    }
 }
 
 

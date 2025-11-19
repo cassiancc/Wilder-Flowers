@@ -127,7 +127,13 @@ public class WilderFlowersBlocks {
     public static List<ItemStack> getWildflowerItems() {
         ArrayList<ItemStack> list = new ArrayList<>();
         WILDFLOWERS.forEach((wildflowerSupplier -> {
-            if (wildflowerSupplier.flowerBedItem().builtInRegistryHolder().key().location().getNamespace().equals("wilderflowers")) {
+            if (wildflowerSupplier.flowerBedItem().builtInRegistryHolder().key().
+                    //? if >1.21.10 {
+                    /*identifier()
+                    *///?} else {
+                    location()
+                    //?}
+                    .getNamespace().equals("wilderflowers")) {
                 list.add(wildflowerSupplier.flowerBedItem().getDefaultInstance());
             }
             if (wildflowerSupplier.garland().isPresent())

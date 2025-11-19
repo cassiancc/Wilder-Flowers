@@ -98,9 +98,6 @@ dependencies {
         modImplementation("maven.modrinth:eiv:${property("deps.eiv")}")
     }
 
-    modImplementation("maven.modrinth:lithostitched:${property("deps.lithostitched")}")
-    include("maven.modrinth:lithostitched:${property("deps.lithostitched")}")
-
     if (hasProperty("deps.supplementaries")) {
         modImplementation("maven.modrinth:supplementaries:${property("deps.supplementaries")}")
         modImplementation("maven.modrinth:moonlight:${property("deps.moonlight")}-fabric")
@@ -109,6 +106,16 @@ dependencies {
     val modules = listOf("transitive-access-wideners-v1", "registry-sync-v0", "resource-loader-v0")
     for (it in modules) modImplementation(fabricApi.module("fabric-$it", property("deps.fabric_api") as String))
 }
+
+
+
+stonecutter {
+    replacements.string {
+        direction = eval(current.version, ">1.21.10")
+        replace("ResourceLocation", "Identifier")
+    }
+}
+
 
 
 configurations.all {
