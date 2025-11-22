@@ -25,11 +25,11 @@ import static cc.cassian.wilderflowers.WilderFlowers.MOD_ID;
 public class NeoForgeClientEntrypoint {
     @SubscribeEvent
     public static void registerBlockColors(RegisterColorHandlersEvent.Block event){
-        event.register(((state, view, pos, tintIndex) -> {
-            if (view == null || pos == null) {
+        event.register(((state, blockAndTintGetter, blockPos, tintIndex) -> {
+            if (blockAndTintGetter == null || blockPos == null) {
                 return 9551193;
             }
-            return BiomeColors.getAverageFoliageColor(view, pos);
+            return BiomeColors.getAverageGrassColor(blockAndTintGetter, blockPos);
         }), WilderFlowersBlocks.MOODY_WILDFLOWERS.flowerBed().get(), WilderFlowersBlocks.CHEERY_WILDFLOWERS.flowerBed().get(), WilderFlowersBlocks.HOPEFUL_WILDFLOWERS.flowerBed().get(), WilderFlowersBlocks.PLAYFUL_WILDFLOWERS.flowerBed().get(), WilderFlowersBlocks.CLOVERS.flowerBed().get());
     }
 
