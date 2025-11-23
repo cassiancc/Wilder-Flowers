@@ -37,10 +37,10 @@ public class NeoforgeEntrypoint {
         if (event.getTabKey().equals(CreativeModeTabs.NATURAL_BLOCKS)) {
             WilderFlowersBlocks.getWildflowerItems().forEach((wildflowerSupplier -> {
                 //? if >1.21.4 {
-                event.insertAfter(Items.WILDFLOWERS.getDefaultInstance(), wildflowerSupplier, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-                //?} else {
-                /^event.insertAfter(Items.PINK_PETALS.getDefaultInstance(), wildflowerSupplier, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-                ^///?}
+                /^event.insertAfter(Items.WILDFLOWERS.getDefaultInstance(), wildflowerSupplier, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                ^///?} else {
+                event.insertAfter(Items.PINK_PETALS.getDefaultInstance(), wildflowerSupplier, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                //?}
             }));
         }
     }
@@ -58,10 +58,10 @@ public class NeoforgeEntrypoint {
     @SubscribeEvent
     static void commonSetup(FMLCommonSetupEvent event) {
         //? if <1.21.2 {
-        /^if (Platform.INSTANCE.isModLoaded("supplementaries")) {
+        if (Platform.INSTANCE.isModLoaded("supplementaries")) {
             SupplementariesCompat.register();
         }
-        ^///?}
+        //?}
     }
 
     @SubscribeEvent

@@ -2,14 +2,13 @@ package cc.cassian.wilderflowers.neoforge;
 //? if neoforge {
 
 /*import cc.cassian.wilderflowers.WilderFlowers;
+import cc.cassian.wilderflowers.client.WilderFlowersClient;
 import cc.cassian.wilderflowers.client.particle.FlowerPetalParticle;
 import cc.cassian.wilderflowers.events.FlowerGarlandEvent;
 import cc.cassian.wilderflowers.registry.WilderFlowersBlocks;
 import cc.cassian.wilderflowers.registry.WilderFlowersItemProperties;
 import cc.cassian.wilderflowers.registry.WilderFlowersParticleTypes;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.color.block.BlockColors;
-import net.minecraft.client.renderer.BiomeColors;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -25,12 +24,7 @@ import static cc.cassian.wilderflowers.WilderFlowers.MOD_ID;
 public class NeoForgeClientEntrypoint {
     @SubscribeEvent
     public static void registerBlockColors(RegisterColorHandlersEvent.Block event){
-        event.register(((state, blockAndTintGetter, blockPos, tintIndex) -> {
-            if (blockAndTintGetter == null || blockPos == null) {
-                return 9551193;
-            }
-            return BiomeColors.getAverageGrassColor(blockAndTintGetter, blockPos);
-        }), WilderFlowersBlocks.MOODY_WILDFLOWERS.flowerBed().get(), WilderFlowersBlocks.CHEERY_WILDFLOWERS.flowerBed().get(), WilderFlowersBlocks.HOPEFUL_WILDFLOWERS.flowerBed().get(), WilderFlowersBlocks.PLAYFUL_WILDFLOWERS.flowerBed().get(), WilderFlowersBlocks.CLOVERS.flowerBed().get());
+        event.register((WilderFlowersClient::getColor), WilderFlowersBlocks.MOODY_WILDFLOWERS.flowerBed().get(), WilderFlowersBlocks.CHEERY_WILDFLOWERS.flowerBed().get(), WilderFlowersBlocks.HOPEFUL_WILDFLOWERS.flowerBed().get(), WilderFlowersBlocks.PLAYFUL_WILDFLOWERS.flowerBed().get(), WilderFlowersBlocks.CLOVERS.flowerBed().get());
     }
 
     @SubscribeEvent
@@ -42,20 +36,20 @@ public class NeoForgeClientEntrypoint {
     }
 
     //? if <1.21.2 {
-    /^@SubscribeEvent
+    @SubscribeEvent
     public static void setupClient(FMLClientSetupEvent event) {
         WilderFlowersItemProperties.register();
     }
-    ^///?}
+    //?}
 
     @SubscribeEvent
     public static void clickTick(ClientTickEvent.Post event) {
         //? if <1.21.2
-        /^FlowerGarlandEvent.tick(Minecraft.getInstance());^/
+        FlowerGarlandEvent.tick(Minecraft.getInstance());
     }
 
     //? if <1.21.2 {
-    /^@SubscribeEvent
+    @SubscribeEvent
     public static void onModelBake(ModelEvent.RegisterAdditional event) {
         // This should probably be extracted into a handler of some kind
         event.register(WilderFlowers.locateModel("block/cheery_wildflowers_potted"));
@@ -63,7 +57,7 @@ public class NeoForgeClientEntrypoint {
         event.register(WilderFlowers.locateModel("block/playful_wildflowers_potted"));
         event.register(WilderFlowers.locateModel("block/hopeful_wildflowers_potted"));
     }
-    ^///?}
+    //?}
 }
 
 *///?}

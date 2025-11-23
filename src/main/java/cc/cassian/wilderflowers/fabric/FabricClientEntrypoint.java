@@ -2,6 +2,7 @@ package cc.cassian.wilderflowers.fabric;
 
 //? fabric {
 import cc.cassian.wilderflowers.WilderFlowers;
+import cc.cassian.wilderflowers.client.WilderFlowersClient;
 import cc.cassian.wilderflowers.client.particle.FlowerPetalParticle;
 import cc.cassian.wilderflowers.events.FlowerGarlandEvent;
 import cc.cassian.wilderflowers.registry.WilderFlowersBlocks;
@@ -10,7 +11,6 @@ import cc.cassian.wilderflowers.registry.WildflowerSupplier;
 import net.fabricmc.api.ClientModInitializer;
 //? if >1.21.2 {
 import net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap;
-import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
 //?} else {
 /*import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
@@ -28,12 +28,7 @@ public class FabricClientEntrypoint implements ClientModInitializer {
         for (WildflowerSupplier wildflower : WilderFlowersBlocks.WILDFLOWERS) {
             cutout(wildflower);
         }
-        ColorProviderRegistry.BLOCK.register(((blockState, blockAndTintGetter, blockPos, i) -> {
-            if (blockAndTintGetter == null || blockPos == null) {
-                return 9551193;
-            }
-            return BiomeColors.getAverageGrassColor(blockAndTintGetter, blockPos);
-        }),
+        ColorProviderRegistry.BLOCK.register((WilderFlowersClient::getColor),
                 WilderFlowersBlocks.MOODY_WILDFLOWERS.flowerBed().get(),
                 //? if <1.21.5
                 /*WilderFlowersBlocks.CHEERY_WILDFLOWERS.flowerBed().get(),*/
