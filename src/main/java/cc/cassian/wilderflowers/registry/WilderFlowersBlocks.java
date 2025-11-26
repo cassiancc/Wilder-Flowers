@@ -139,6 +139,11 @@ public class WilderFlowersBlocks {
             if (wildflowerSupplier.garland().isPresent())
                 list.add(wildflowerSupplier.garlandItem().getDefaultInstance());
         }));
+        //? if >1.21 {
         return list.reversed();
+        //?} else {
+        /*return list;
+        *///?}
+
     }
 }
