@@ -1,2 +1,5 @@
+### Changed
+- Improved textures and models (@ProbablyEkho)
+
 ### Fixed
-- Support for Java 17
+- Crash on NeoForge 1.21.10

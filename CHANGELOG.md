@@ -1,3 +1,10 @@
+## [1.0.2]
+
+### Fixed
+- Support for Java 17
+
+## [1.0.1]
+
 ### Added
 - 1.21.8 support
 
