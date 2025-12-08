@@ -1,6 +1,6 @@
 package cc.cassian.wilderflowers.fabric;
 
-//? fabric {
+//? fabric || unobf {
 import cc.cassian.wilderflowers.Platform;
 import cc.cassian.wilderflowers.WilderFlowers;
 import cc.cassian.wilderflowers.compat.SupplementariesCompat;

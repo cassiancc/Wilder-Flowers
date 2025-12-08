@@ -1,6 +1,6 @@
 package cc.cassian.wilderflowers.registry;
 
-//? if fabric
+//? if fabric || unobf
 import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
 import net.minecraft.core.particles.SimpleParticleType;
 
@@ -15,7 +15,7 @@ public class WilderFlowersParticleTypes {
 
     private static Supplier<SimpleParticleType> registerSimpleParticleType(boolean alwaysShow, String name) {
         return CommonRegistry.registerParticleType(name, ()->
-            //? if fabric {
+            //? if fabric || unobf {
             FabricParticleTypes.simple(alwaysShow)
             //?} else {
             /*new SimpleParticleType(alwaysShow)

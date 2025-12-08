@@ -1,6 +1,6 @@
 package cc.cassian.wilderflowers;
 
-//? fabric {
+//? fabric || unobf {
 import cc.cassian.wilderflowers.fabric.FabricPlatformImpl;
 //?}
 //? neoforge {
@@ -10,7 +10,7 @@ import java.nio.file.Path;
 
 public interface Platform {
 
-    //? fabric {
+    //? fabric || unobf {
     Platform INSTANCE = new FabricPlatformImpl();
     //?}
     //? neoforge {

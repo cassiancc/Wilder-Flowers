@@ -1,6 +1,6 @@
 package cc.cassian.wilderflowers.fabric;
 
-//? fabric {
+//? fabric || unobf {
 import cc.cassian.wilderflowers.WilderFlowers;
 import cc.cassian.wilderflowers.client.WilderFlowersClient;
 import cc.cassian.wilderflowers.client.particle.FlowerPetalParticle;
