@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "wilderflowers:potted_cheery_wildflowers",
+      "required": false
+    },
+    {
+      "id": "wilderflowers:potted_moody_wildflowers",
+      "required": false
+    },
+    {
+      "id": "wilderflowers:potted_playful_wildflowers",
+      "required": false
+    },
+    {
+      "id": "wilderflowers:potted_hopeful_wildflowers",
+      "required": false
+    }
+  ]
+}

@@ -1,3 +1,11 @@
+## [1.0.3]
+
+### Changed
+- Improved textures and models (@ProbablyEkho)
+
+### Fixed
+- Crash on NeoForge 1.21.10
+
 ## [1.0.2]
 
 ### Fixed
