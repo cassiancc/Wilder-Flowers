@@ -26,3 +26,6 @@ side = "BOTH"
 modId = "minecraft"
 type = "required"
 versionRange = "${minecraft}"
+
+[[mixins]]
+config = "wilderflowers.mixins.json"

@@ -26,6 +26,7 @@
       "cc.cassian.wilderflowers.fabric.FabricClientEntrypoint"
     ]
   },
+  "mixins": ["wilderflowers.mixins.json"],
   "depends": {
     "fabric-api": "*",
     "minecraft": "${minecraft}"

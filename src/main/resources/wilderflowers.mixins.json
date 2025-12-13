@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "cc.cassian.wilderflowers.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "FlowerBoxColorMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
