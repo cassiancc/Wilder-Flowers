@@ -6,6 +6,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.block.Block;
 
 import static cc.cassian.wilderflowers.WilderFlowers.MOD_ID;
 
@@ -26,6 +27,7 @@ public class WilderFlowersTags {
     public static final TagKey<Biome> MOODY_WILDFLOWERS_BIOMES = biomeTagKey("moody_wildflowers_biomes");
     public static final TagKey<Biome> MEDIUM_MOODY_WILDFLOWERS_BIOMES = biomeTagKey("medium_moody_wildflowers_biomes");
     public static final TagKey<Biome> DENSE_MOODY_WILDFLOWERS_BIOMES = biomeTagKey("dense_moody_wildflowers_biomes");
+    public static final TagKey<Block> WILDFLOWERS = blockTagKey("wildflowers");
 
     public static TagKey<Biome> biomeTagKey(String id) {
         return biomeTagKey(MOD_ID, id);
@@ -33,5 +35,13 @@ public class WilderFlowersTags {
 
     public static TagKey<Biome> biomeTagKey(String namespace, String id) {
         return TagKey.create(Registries.BIOME, WilderFlowers.locate(namespace, id));
+    }
+
+    public static TagKey<Block> blockTagKey(String id) {
+        return blockTagKey(MOD_ID, id);
+    }
+
+    public static TagKey<Block> blockTagKey(String namespace, String id) {
+        return TagKey.create(Registries.BLOCK, WilderFlowers.locate(namespace, id));
     }
 }

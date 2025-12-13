@@ -47,17 +47,6 @@ public class NeoForgeClientEntrypoint {
         //? if <1.21.2
         FlowerGarlandEvent.tick(Minecraft.getInstance());
     }
-
-    //? if <1.21.2 {
-    @SubscribeEvent
-    public static void onModelBake(ModelEvent.RegisterAdditional event) {
-        // This should probably be extracted into a handler of some kind
-        event.register(WilderFlowers.locateModel("block/cheery_wildflowers_potted"));
-        event.register(WilderFlowers.locateModel("block/moody_wildflowers_potted"));
-        event.register(WilderFlowers.locateModel("block/playful_wildflowers_potted"));
-        event.register(WilderFlowers.locateModel("block/hopeful_wildflowers_potted"));
-    }
-    //?}
 }
 
 *///?}

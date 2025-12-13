@@ -3,7 +3,6 @@ package cc.cassian.wilderflowers.neoforge;
 //? neoforge {
 /*import cc.cassian.wilderflowers.Platform;
 import cc.cassian.wilderflowers.WilderFlowers;
-import cc.cassian.wilderflowers.compat.SupplementariesCompat;
 import cc.cassian.wilderflowers.registry.WilderFlowersBlocks;
 import cc.cassian.wilderflowers.registry.WilderFlowersParticleTypes;
 import net.minecraft.core.registries.Registries;
@@ -53,15 +52,6 @@ public class NeoforgeEntrypoint {
         if (event.getRegistryKey().equals(Registries.PARTICLE_TYPE)) {
             WilderFlowersParticleTypes.touch();
         }
-    }
-
-    @SubscribeEvent
-    static void commonSetup(FMLCommonSetupEvent event) {
-        //? if <1.21.2 {
-        if (Platform.INSTANCE.isModLoaded("supplementaries")) {
-            SupplementariesCompat.register();
-        }
-        //?}
     }
 
     @SubscribeEvent

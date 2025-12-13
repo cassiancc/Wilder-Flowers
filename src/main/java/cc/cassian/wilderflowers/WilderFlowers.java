@@ -32,12 +32,6 @@ public class WilderFlowers {
 
     }
 
-    //? if <1.21.8 {
-    /*public static ModelResourceLocation locateModel(String s) {
-        return new ModelResourceLocation(locate(MOD_ID, s), "standalone");
-    }
-    *///?}
-
     public static ResourceLocation locate(String s) {
         return locate(MOD_ID, s);
     }
