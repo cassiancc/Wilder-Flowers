@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#wilderflowers:dense_clovers_biomes",
+  "features": "wilderflowers:clovers_dense",
+  "step": "vegetal_decoration"
+}
