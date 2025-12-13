@@ -9,6 +9,7 @@ import net.minecraft.world.level.block.state.BlockState;
 
 public class WilderFlowersClient {
     public static int getColor(BlockState state, BlockAndTintGetter blockAndTintGetter, BlockPos blockPos, int tintIndex) {
+        if (tintIndex ==1) return -1;
         if (blockAndTintGetter == null || blockPos == null) {
             return 9551193;
         }
