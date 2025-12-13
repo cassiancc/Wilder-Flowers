@@ -3,7 +3,6 @@ package cc.cassian.wilderflowers.fabric;
 //? fabric || unobf {
 import cc.cassian.wilderflowers.Platform;
 import cc.cassian.wilderflowers.WilderFlowers;
-import cc.cassian.wilderflowers.compat.SupplementariesCompat;
 import cc.cassian.wilderflowers.registry.*;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModification;
@@ -48,9 +47,6 @@ public class FabricEntrypoint implements ModInitializer {
                 *///?}
             }));
         }));
-        if (Platform.INSTANCE.isModLoaded("supplementaries")) {
-            SupplementariesCompat.register();
-        }
         ResourceManagerHelper.registerBuiltinResourcePack(
                 WilderFlowers.locate("wildflowers"),
                 FabricLoader.getInstance().getModContainer(MOD_ID).orElseThrow(),

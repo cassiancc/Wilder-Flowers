@@ -112,7 +112,7 @@ dependencies {
     }
 
     if (hasProperty("deps.supplementaries")) {
-        implementation("maven.modrinth:supplementaries:neoforge_${property("deps.supplementaries")}")
+        implementation("maven.modrinth:supplementaries:${property("deps.supplementaries")}")
         implementation("maven.modrinth:moonlight:${property("deps.moonlight")}-neoforge")
     }
 

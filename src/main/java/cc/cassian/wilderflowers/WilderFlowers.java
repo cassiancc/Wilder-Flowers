@@ -43,10 +43,6 @@ public class WilderFlowers {
     }
 
     public static ResourceLocation locate(String namespace, String s) {
-        //? if >1.21 {
         return ResourceLocation.fromNamespaceAndPath(namespace, s);
-        //?} else {
-        /*return new ResourceLocation(namespace, s);
-        *///?}
     }
 }
