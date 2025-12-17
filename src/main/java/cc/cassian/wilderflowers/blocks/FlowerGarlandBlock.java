@@ -1,11 +1,11 @@
 package cc.cassian.wilderflowers.blocks;
 
 import com.google.common.collect.ImmutableMap;
-//? if >1.21.10 {
-/*import net.minecraft.util.Util;
-*///?} else {
-import net.minecraft.Util;
-//?}
+//? if >1.21.10 || fabric {
+import net.minecraft.util.Util;
+//?} else {
+/*import net.minecraft.Util;
+*///?}
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;

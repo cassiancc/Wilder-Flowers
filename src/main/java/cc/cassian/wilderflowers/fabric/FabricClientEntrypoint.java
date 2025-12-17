@@ -1,6 +1,6 @@
 package cc.cassian.wilderflowers.fabric;
 
-//? fabric || unobf {
+//? fabric {
 import cc.cassian.wilderflowers.WilderFlowers;
 import cc.cassian.wilderflowers.client.WilderFlowersClient;
 import cc.cassian.wilderflowers.client.particle.FlowerPetalParticle;
@@ -14,7 +14,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap;
 import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
 //?} else {
 /*import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
-import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.rendertype.RenderType;
 *///?}
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
@@ -24,7 +24,7 @@ public class FabricClientEntrypoint implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        WilderFlowers.LOG.info("Initializing {} Client", WilderFlowers.MOD_ID);
+        WilderFlowers.LOG.info("Initializing {} Client", WilderFlowers.MOD_NAME);
         for (WildflowerSupplier wildflower : WilderFlowersBlocks.WILDFLOWERS) {
             cutout(wildflower);
         }

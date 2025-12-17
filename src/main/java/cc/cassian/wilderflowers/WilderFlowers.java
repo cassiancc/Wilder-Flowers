@@ -1,13 +1,9 @@
 package cc.cassian.wilderflowers;
 
 import cc.cassian.wilderflowers.registry.WilderFlowersBlocks;
-//? if <1.21.2 {
-/*import net.minecraft.client.resources.model.ModelResourceLocation;
-*///?}
-
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -32,11 +28,11 @@ public class WilderFlowers {
 
     }
 
-    public static ResourceLocation locate(String s) {
+    public static Identifier locate(String s) {
         return locate(MOD_ID, s);
     }
 
-    public static ResourceLocation locate(String namespace, String s) {
-        return ResourceLocation.fromNamespaceAndPath(namespace, s);
+    public static Identifier locate(String namespace, String s) {
+        return Identifier.fromNamespaceAndPath(namespace, s);
     }
 }

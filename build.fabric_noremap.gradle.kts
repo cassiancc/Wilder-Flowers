@@ -143,20 +143,15 @@ publishMods {
 
     modrinth {
         projectId = property("publish.modrinth") as String
-        accessToken = null
-        if (!stonecutter.eval(mcVersion, ">1.21.10")) {
-            minecraftVersions.add(stonecutter.current.version)
-        } else {
-            minecraftVersions.add(property("deps.minecraft").toString())
-        }
+        accessToken = env.MODRINTH_API_KEY.orNull()
+        minecraftVersions.add(property("deps.minecraft").toString())
         minecraftVersions.addAll(additionalVersions)
         requires("fabric-api")
-        optional("mcqoy")
     }
 
     curseforge {
         projectId = property("publish.curseforge") as String
-        accessToken = null
+        accessToken = env.CURSEFORGE_API_KEY.orNull()
         minecraftVersions.add(stonecutter.current.version)
         minecraftVersions.addAll(additionalVersions)
         requires("fabric-api")
@@ -166,8 +161,8 @@ publishMods {
 publishing {
     publications {
         create<MavenPublication>("maven") {
-            groupId = "cc.cassian.item-descriptions"
-            artifactId = "item-descriptions-fabric"
+            groupId = "cc.cassian.wilderflowers"
+            artifactId = "wilderflowers-fabric"
             version = "${property("mod.version")}+${property("deps.minecraft")}"
 
             from(components["java"])

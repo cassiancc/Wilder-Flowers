@@ -128,11 +128,11 @@ public class WilderFlowersBlocks {
         ArrayList<ItemStack> list = new ArrayList<>();
         WILDFLOWERS.forEach((wildflowerSupplier -> {
             if (wildflowerSupplier.flowerBedItem().builtInRegistryHolder().key().
-                    //? if >1.21.10 {
-                    /*identifier()
-                    *///?} else {
-                    location()
-                    //?}
+                    //? if >1.21.10 || fabric {
+                    identifier()
+                    //?} else {
+                    /*location()
+                    *///?}
                     .getNamespace().equals("wilderflowers")) {
                 list.add(wildflowerSupplier.flowerBedItem().getDefaultInstance());
             }

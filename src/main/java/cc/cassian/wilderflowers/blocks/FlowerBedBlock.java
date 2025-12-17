@@ -1,7 +1,7 @@
 package cc.cassian.wilderflowers.blocks;
 
 import cc.cassian.wilderflowers.WilderFlowers;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.*;
 
 import java.util.function.BiFunction;
