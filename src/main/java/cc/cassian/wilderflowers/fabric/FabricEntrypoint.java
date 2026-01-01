@@ -8,10 +8,9 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModification;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
-import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
+import net.fabricmc.fabric.api.resource.v1.ResourceLoader;
+import net.fabricmc.fabric.api.resource.v1.pack.PackActivationType;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -24,9 +23,12 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-
 import static cc.cassian.wilderflowers.WilderFlowers.MOD_ID;
-
+//? if >26 {
+import static net.fabricmc.fabric.api.resource.v1.pack.PackActivationType.DEFAULT_ENABLED;
+//?} else {
+/*import static net.fabricmc.fabric.api.resource.ResourcePackActivationType.DEFAULT_ENABLED;
+*///?}
 
 public class FabricEntrypoint implements ModInitializer {
 
@@ -38,21 +40,41 @@ public class FabricEntrypoint implements ModInitializer {
         //? if <1.21.2 {
         /*WilderFlowersItemProperties.register();
         *///?}
-        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.NATURAL_BLOCKS).register((event -> {
+        //? if >26 {
+        net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents.modifyOutputEvent
+        //?} else {
+        /*net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents.modifyEntriesEvent
+        *///?}
+        (CreativeModeTabs.NATURAL_BLOCKS).register((event -> {
             WilderFlowersBlocks.getWildflowerItems().forEach((wildflowerSupplier -> {
                 //? if >1.21.4 {
-                event.addAfter(Items.WILDFLOWERS.getDefaultInstance(), wildflowerSupplier);
-                //?} else {
+                event.insertAfter(Items.WILDFLOWERS.getDefaultInstance(), wildflowerSupplier);
+                //?} else if >1.21.4 {
+                /*event.addAfter(Items.WILDFLOWERS.getDefaultInstance(), wildflowerSupplier);
+                *///?} else {
                 /*event.addAfter(Items.PINK_PETALS.getDefaultInstance(), wildflowerSupplier);
                 *///?}
             }));
         }));
-        ResourceManagerHelper.registerBuiltinResourcePack(
+        //? if >26 {
+        ResourceLoader.registerBuiltinPack
+        //?} else {
+        /*ResourceManagerHelper.registerBuiltinResourcePack
+        *///?}
+        (
                 WilderFlowers.locate("wildflowers"),
                 FabricLoader.getInstance().getModContainer(MOD_ID).orElseThrow(),
                 Component.literal("Wilder Flowers"),
-                ResourcePackActivationType.DEFAULT_ENABLED);
-        WilderFlowersBlocks.getWildflowerItems().forEach((stack -> CompostingChanceRegistry.INSTANCE.add(stack.getItem(), 0.3f)));
+                DEFAULT_ENABLED
+        );
+        WilderFlowersBlocks.getWildflowerItems().forEach((stack -> {
+            //? if >26 {
+            net.fabricmc.fabric.api.registry.CompostableRegistry
+            //?} else {
+            /*net.fabricmc.fabric.api.registry.CompostingChanceRegistry
+            *///?}
+			.INSTANCE.add(stack.getItem(), 0.3f);
+		}));
 
         // cheery - replaced by vanilla in 1.21.5+
         //? if <1.21.5 {

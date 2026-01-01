@@ -8,7 +8,7 @@ plugins {
     id("me.modmuss50.mod-publish-plugin") version "0.8.+" apply false
 }
 
-stonecutter active "1.21.10-fabric"
+stonecutter active "26.1-fabric"
 
 stonecutter parameters {
     constants.match(node.metadata.project.substringAfterLast('-'), "fabric", "unobf", "neoforge")
