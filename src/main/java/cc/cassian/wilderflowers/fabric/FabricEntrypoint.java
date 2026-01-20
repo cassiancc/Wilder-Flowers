@@ -49,9 +49,7 @@ public class FabricEntrypoint implements ModInitializer {
             WilderFlowersBlocks.getWildflowerItems().forEach((wildflowerSupplier -> {
                 //? if >1.21.4 {
                 event.insertAfter(Items.WILDFLOWERS.getDefaultInstance(), wildflowerSupplier);
-                //?} else if >1.21.4 {
-                /*event.addAfter(Items.WILDFLOWERS.getDefaultInstance(), wildflowerSupplier);
-                *///?} else {
+                //?} else {
                 /*event.addAfter(Items.PINK_PETALS.getDefaultInstance(), wildflowerSupplier);
                 *///?}
             }));
@@ -73,7 +71,7 @@ public class FabricEntrypoint implements ModInitializer {
             //?} else {
             /*net.fabricmc.fabric.api.registry.CompostingChanceRegistry
             *///?}
-			.INSTANCE.add(stack.getItem(), 0.3f);
+			.INSTANCE.add(stack, 0.3f);
 		}));
 
         // cheery - replaced by vanilla in 1.21.5+

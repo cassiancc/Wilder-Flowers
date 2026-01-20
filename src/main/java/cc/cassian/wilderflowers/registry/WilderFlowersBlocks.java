@@ -124,8 +124,8 @@ public class WilderFlowersBlocks {
 
     }
 
-    public static List<ItemStack> getWildflowerItems() {
-        ArrayList<ItemStack> list = new ArrayList<>();
+    public static List<Item> getWildflowerItems() {
+        ArrayList<Item> list = new ArrayList<>();
         WILDFLOWERS.forEach((wildflowerSupplier -> {
             if (wildflowerSupplier.flowerBedItem().builtInRegistryHolder().key().
                     //? if >1.21.10 || fabric {
@@ -134,16 +134,12 @@ public class WilderFlowersBlocks {
                     /*location()
                     *///?}
                     .getNamespace().equals("wilderflowers")) {
-                list.add(wildflowerSupplier.flowerBedItem().getDefaultInstance());
+                list.add(wildflowerSupplier.flowerBedItem());
             }
             if (wildflowerSupplier.garland().isPresent())
-                list.add(wildflowerSupplier.garlandItem().getDefaultInstance());
+                list.add(wildflowerSupplier.garlandItem());
         }));
-        //? if >1.21 {
         return list.reversed();
-        //?} else {
-        /*return list;
-        *///?}
 
     }
 }

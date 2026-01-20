@@ -1,3 +1,11 @@
+## [1.0.4]
+
+### Added
+- Added support for Supplementaries Flower Boxes.
+
+### Fixed
+- Flower pots are now properly tagged.
+
 ## [1.0.3]
 
 ### Changed

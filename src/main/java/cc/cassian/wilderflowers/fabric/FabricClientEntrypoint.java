@@ -17,13 +17,15 @@ import static net.fabricmc.fabric.api.client.rendering.v1.ChunkSectionLayerMap.p
 import static net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap.putBlocks;
 *///?}
 //? if >1.21.2 {
+import net.fabricmc.fabric.api.client.rendering.v1.BlockColorRegistry;
 import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
 //?} else {
-/*import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+/*import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
+/^import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.minecraft.client.renderer.rendertype.RenderType;
-*///?}
+^/*///?}
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
-import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
+
 
 public class FabricClientEntrypoint implements ClientModInitializer {
 
@@ -33,18 +35,22 @@ public class FabricClientEntrypoint implements ClientModInitializer {
         for (WildflowerSupplier wildflower : WilderFlowersBlocks.WILDFLOWERS) {
             cutout(wildflower);
         }
-        ColorProviderRegistry.BLOCK.register((WilderFlowersClient::getColor),
-                WilderFlowersBlocks.MOODY_WILDFLOWERS.flowerBed().get(),
-                //? if <1.21.5
-                /*WilderFlowersBlocks.CHEERY_WILDFLOWERS.flowerBed().get(),*/
-                WilderFlowersBlocks.HOPEFUL_WILDFLOWERS.flowerBed().get(),
-                WilderFlowersBlocks.CLOVERS.flowerBed().get());
+
         //? if <1.21.9
         /*ClientTickEvents.END_CLIENT_TICK.register((FlowerGarlandEvent::tick));*/
         //? if >26 {
         registerParticleTypes(ParticleProviderRegistry.getInstance());
+        BlockColorRegistry.register((WilderFlowersClient::getColor),
+                WilderFlowersBlocks.MOODY_WILDFLOWERS.flowerBed().get(),
+                WilderFlowersBlocks.HOPEFUL_WILDFLOWERS.flowerBed().get(),
+                WilderFlowersBlocks.CLOVERS.flowerBed().get());
         //?} else {
         /*registerParticleTypes(ParticleFactoryRegistry.getInstance());
+        ColorProviderRegistry.BLOCK.register((WilderFlowersClient::getColor),
+                WilderFlowersBlocks.MOODY_WILDFLOWERS.flowerBed().get(),
+                WilderFlowersBlocks.CHEERY_WILDFLOWERS.flowerBed().get(),
+                WilderFlowersBlocks.HOPEFUL_WILDFLOWERS.flowerBed().get(),
+                WilderFlowersBlocks.CLOVERS.flowerBed().get());
         *///?}
 
     }

@@ -1,5 +1,1 @@
-### Added
-- Added support for Supplementaries Flower Boxes.
-
-### Fixed
-- Flower pots are now properly tagged.
+- Port to 26.1-snapshot-4.
