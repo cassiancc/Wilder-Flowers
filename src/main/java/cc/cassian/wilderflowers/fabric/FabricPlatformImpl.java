@@ -28,5 +28,10 @@ public class FabricPlatformImpl implements Platform {
         return FabricLoader.getInstance().isDevelopmentEnvironment();
     }
 
+    @Override
+    public Path configPath() {
+        return FabricLoader.getInstance().getConfigDir();
+    }
+
 }
 //?}

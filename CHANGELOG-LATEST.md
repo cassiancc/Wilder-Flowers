@@ -1,2 +1,10 @@
+- Added config:
+  - Mobs occasionally spawn with flower garlands from their corresponding biomes, all indicated with [new biome tags](https://github.com/davidjjung/wilderflowers/tree/1.20.1/src/main/resources/data/wilderflowers/tags/worldgen/biome).
+      - Both normal and increased flower garland spawn chance included by % chance in config. Flower Forests are the only biome included in `wilderflowers:frequent_garlands` by default
+  - Added mob behavior config options:
+      - Mobs in the tag `wilderflowers:garland_wearers` may behave as either passive or neutral (both disabled by default)
+- Added Russian translation.
+- Added Chinese Translation.
+- Fixed missing tags.
 - Port to 26.1-snapshot-4.
 - Fixed crash on 1.21.1 Fabric dedicated server.

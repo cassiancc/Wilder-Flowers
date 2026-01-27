@@ -102,9 +102,9 @@ neoForge {
 
 dependencies {
     // McQoy
-//    implementation("folk.sisby:kaleido-config:${property("deps.kaleido")}")
-//    jarJar("folk.sisby:kaleido-config:${property("deps.kaleido")}")
-//    implementation("maven.modrinth:mcqoy:${property("deps.mcqoy")}")
+    implementation("folk.sisby:kaleido-config:${property("deps.kaleido")}")
+    jarJar("folk.sisby:kaleido-config:${property("deps.kaleido")}")
+    implementation("maven.modrinth:mcqoy:${property("deps.mcqoy")}")
 
     // YACL  - required by McQoy
     if (hasProperty("deps.yacl")) {

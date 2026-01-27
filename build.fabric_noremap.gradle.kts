@@ -86,6 +86,9 @@ dependencies {
 
     implementation("net.fabricmc.fabric-api:fabric-api:${property("deps.fabric_api")}")
 
+    implementation("folk.sisby:kaleido-config:${property("deps.kaleido")}")
+    include("folk.sisby:kaleido-config:${property("deps.kaleido")}")
+
 }
 
 configurations.all {

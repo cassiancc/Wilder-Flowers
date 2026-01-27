@@ -1,5 +1,6 @@
 package cc.cassian.wilderflowers;
 
+import cc.cassian.wilderflowers.config.ModConfig;
 import cc.cassian.wilderflowers.registry.WilderFlowersBlocks;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -12,6 +13,7 @@ public class WilderFlowers {
     public static final String MOD_ID = "wilderflowers";
     public static final String MOD_NAME = "Wilder Flowers";
     public static final Logger LOG = LoggerFactory.getLogger(MOD_ID);
+    public static final ModConfig CONFIG = ModConfig.createToml(Platform.INSTANCE.configPath(), "", MOD_ID, ModConfig.class);
 
     public static void init() {
         LOG.info("Initializing {} on {}", MOD_NAME, Platform.INSTANCE.loader());

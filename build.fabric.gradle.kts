@@ -90,9 +90,9 @@ dependencies {
     modImplementation("net.fabricmc.fabric-api:fabric-api:${property("deps.fabric_api")}")
 
     // Kaleido + McQoy
-//    implementation("folk.sisby:kaleido-config:${property("deps.kaleido")}")
-//    include("folk.sisby:kaleido-config:${property("deps.kaleido")}")
-//    modLocalRuntime("maven.modrinth:mcqoy:${property("deps.mcqoy")}")
+    implementation("folk.sisby:kaleido-config:${property("deps.kaleido")}")
+    include("folk.sisby:kaleido-config:${property("deps.kaleido")}")
+    modLocalRuntime("maven.modrinth:mcqoy:${property("deps.mcqoy")}")
 
     // Mod Menu - required by McQoy
     if (hasProperty("deps.modmenu"))

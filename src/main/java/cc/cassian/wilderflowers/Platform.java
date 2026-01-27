@@ -23,4 +23,5 @@ public interface Platform {
     Path getConfigDir();
     boolean isDevelopment();
 
+	Path configPath();
 }

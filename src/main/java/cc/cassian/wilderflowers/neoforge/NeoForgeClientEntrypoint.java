@@ -36,16 +36,16 @@ public class NeoForgeClientEntrypoint {
     }
 
     //? if <1.21.2 {
-    @SubscribeEvent
+    /^@SubscribeEvent
     public static void setupClient(FMLClientSetupEvent event) {
         WilderFlowersItemProperties.register();
     }
-    //?}
+    ^///?}
 
     @SubscribeEvent
     public static void clickTick(ClientTickEvent.Post event) {
         //? if <1.21.2
-        FlowerGarlandEvent.tick(Minecraft.getInstance());
+        //FlowerGarlandEvent.tick(Minecraft.getInstance());
     }
 }
 

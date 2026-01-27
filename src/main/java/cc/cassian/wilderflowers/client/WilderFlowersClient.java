@@ -1,7 +1,5 @@
 package cc.cassian.wilderflowers.client;
 
-import cc.cassian.wilderflowers.WilderFlowers;
-import cc.cassian.wilderflowers.registry.WilderFlowersTags;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockAndTintGetter;

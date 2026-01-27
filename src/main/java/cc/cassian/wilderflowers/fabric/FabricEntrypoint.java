@@ -1,21 +1,19 @@
 package cc.cassian.wilderflowers.fabric;
 
 //? fabric {
-import cc.cassian.wilderflowers.Platform;
 import cc.cassian.wilderflowers.WilderFlowers;
+import cc.cassian.wilderflowers.events.CommonEvents;
 import cc.cassian.wilderflowers.registry.*;
+import cc.cassian.wilderflowers.tags.WilderFlowersBiomeTags;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.biome.v1.BiomeModification;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerEntityEvents;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.tags.TagKey;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.biome.Biome;
@@ -73,22 +71,26 @@ public class FabricEntrypoint implements ModInitializer {
 
         // cheery - replaced by vanilla in 1.21.5+
         //? if <1.21.5 {
-        /*addFeature(WilderFlowersTags.CHEERY_WILDFLOWERS_BIOMES, WilderFlowersPlacedFeatures.CHEERY_WILDFLOWERS);
-        addFeature(WilderFlowersTags.MEDIUM_CHEERY_WILDFLOWERS_BIOMES, WilderFlowersPlacedFeatures.MEDIUM_CHEERY_WILDFLOWERS);
-        addFeature(WilderFlowersTags.DENSE_CHEERY_WILDFLOWERS_BIOMES, WilderFlowersPlacedFeatures.DENSE_CHEERY_WILDFLOWERS);
+        /*addFeature(WilderFlowersBiomeTags.CHEERY_WILDFLOWERS_BIOMES, WilderFlowersPlacedFeatures.CHEERY_WILDFLOWERS);
+        addFeature(WilderFlowersBiomeTags.MEDIUM_CHEERY_WILDFLOWERS_BIOMES, WilderFlowersPlacedFeatures.MEDIUM_CHEERY_WILDFLOWERS);
+        addFeature(WilderFlowersBiomeTags.DENSE_CHEERY_WILDFLOWERS_BIOMES, WilderFlowersPlacedFeatures.DENSE_CHEERY_WILDFLOWERS);
         *///?}
         // moody
-        addFeature(WilderFlowersTags.MOODY_WILDFLOWERS_BIOMES, WilderFlowersPlacedFeatures.MOODY_WILDFLOWERS);
-        addFeature(WilderFlowersTags.MEDIUM_MOODY_WILDFLOWERS_BIOMES, WilderFlowersPlacedFeatures.MEDIUM_MOODY_WILDFLOWERS);
-        addFeature(WilderFlowersTags.DENSE_MOODY_WILDFLOWERS_BIOMES, WilderFlowersPlacedFeatures.DENSE_MOODY_WILDFLOWERS);
+        addFeature(WilderFlowersBiomeTags.MOODY_WILDFLOWERS_BIOMES, WilderFlowersPlacedFeatures.MOODY_WILDFLOWERS);
+        addFeature(WilderFlowersBiomeTags.MEDIUM_MOODY_WILDFLOWERS_BIOMES, WilderFlowersPlacedFeatures.MEDIUM_MOODY_WILDFLOWERS);
+        addFeature(WilderFlowersBiomeTags.DENSE_MOODY_WILDFLOWERS_BIOMES, WilderFlowersPlacedFeatures.DENSE_MOODY_WILDFLOWERS);
         // hopeful
-        addFeature(WilderFlowersTags.HOPEFUL_WILDFLOWERS_BIOMES, WilderFlowersPlacedFeatures.HOPEFUL_WILDFLOWERS);
-        addFeature(WilderFlowersTags.MEDIUM_HOPEFUL_WILDFLOWERS_BIOMES, WilderFlowersPlacedFeatures.MEDIUM_HOPEFUL_WILDFLOWERS);
-        addFeature(WilderFlowersTags.DENSE_HOPEFUL_WILDFLOWERS_BIOMES, WilderFlowersPlacedFeatures.DENSE_HOPEFUL_WILDFLOWERS);
+        addFeature(WilderFlowersBiomeTags.HOPEFUL_WILDFLOWERS_BIOMES, WilderFlowersPlacedFeatures.HOPEFUL_WILDFLOWERS);
+        addFeature(WilderFlowersBiomeTags.MEDIUM_HOPEFUL_WILDFLOWERS_BIOMES, WilderFlowersPlacedFeatures.MEDIUM_HOPEFUL_WILDFLOWERS);
+        addFeature(WilderFlowersBiomeTags.DENSE_HOPEFUL_WILDFLOWERS_BIOMES, WilderFlowersPlacedFeatures.DENSE_HOPEFUL_WILDFLOWERS);
         // clovers
-        addFeature(WilderFlowersTags.CLOVERS_BIOMES, WilderFlowersPlacedFeatures.CLOVERS);
-        addFeature(WilderFlowersTags.MEDIUM_CLOVERS_BIOMES, WilderFlowersPlacedFeatures.MEDIUM_CLOVERS);
-        addFeature(WilderFlowersTags.DENSE_CLOVERS_BIOMES, WilderFlowersPlacedFeatures.DENSE_CLOVERS);
+        addFeature(WilderFlowersBiomeTags.CLOVERS_BIOMES, WilderFlowersPlacedFeatures.CLOVERS);
+        addFeature(WilderFlowersBiomeTags.MEDIUM_CLOVERS_BIOMES, WilderFlowersPlacedFeatures.MEDIUM_CLOVERS);
+        addFeature(WilderFlowersBiomeTags.DENSE_CLOVERS_BIOMES, WilderFlowersPlacedFeatures.DENSE_CLOVERS);
+
+        ServerEntityEvents.ENTITY_LOAD.register((entity, serverLevel) -> {
+            CommonEvents.onEntityJoinWorld(entity);
+        });
     }
 
     static void addFeature(TagKey<Biome> biomeTagKey, ResourceKey<PlacedFeature> placedFeatureResourceKey) {
