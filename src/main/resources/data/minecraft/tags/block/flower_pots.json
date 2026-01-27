@@ -16,6 +16,10 @@
     {
       "id": "wilderflowers:potted_hopeful_wildflowers",
       "required": false
+    },
+    {
+      "id": "wilderflowers:potted_clovers",
+      "required": false
     }
   ]
 }
