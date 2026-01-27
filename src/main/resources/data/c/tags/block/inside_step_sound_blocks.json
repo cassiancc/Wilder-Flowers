@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "#wilderflowers:wildflowers",
+      "required": false
+    },
+    {
+      "id": "wilderflowers:clovers",
+      "required": false
+    }
+  ]
+}
