@@ -1,1 +1,2 @@
 - Port to 26.1-snapshot-4.
+- Fixed crash on 1.21.1 Fabric dedicated server.

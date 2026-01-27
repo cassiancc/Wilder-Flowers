@@ -38,7 +38,7 @@ public class NeoforgeEntrypoint {
                 //? if >1.21.4 {
                 /^event.insertAfter(Items.WILDFLOWERS.getDefaultInstance(), wildflowerSupplier, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
                 ^///?} else {
-                event.insertAfter(Items.PINK_PETALS.getDefaultInstance(), wildflowerSupplier, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+                event.insertAfter(Items.PINK_PETALS.getDefaultInstance(), wildflowerSupplier.getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
                 //?}
             }));
         }
@@ -58,7 +58,6 @@ public class NeoforgeEntrypoint {
     static void addResourcePack(AddPackFindersEvent event) {
         event.addPackFinders(WilderFlowers.locate("resourcepacks/wildflowers"), PackType.CLIENT_RESOURCES, Component.literal("Wilder Flowers"), PackSource.BUILT_IN, true, Pack.Position.TOP);
     }
-
 
 }
 *///?}

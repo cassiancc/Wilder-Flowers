@@ -13,7 +13,7 @@ import net.minecraft.world.level.block.DispenserBlock;
 
 public class FlowerGarlandItem extends BlockItem
         //? if <1.21.2
-        /*implements Equipable*/
+        //implements Equipable
 {
 
     public FlowerGarlandItem(Block block, Properties props) {
