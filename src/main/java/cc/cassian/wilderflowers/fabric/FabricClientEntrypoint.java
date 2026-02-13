@@ -11,9 +11,7 @@ import cc.cassian.wilderflowers.registry.WildflowerSupplier;
 import net.fabricmc.api.ClientModInitializer;
 //? if >26 {
 import net.fabricmc.fabric.api.client.particle.v1.ParticleProviderRegistry;
-import static net.fabricmc.fabric.api.client.rendering.v1.ChunkSectionLayerMap.putBlocks;
 import net.fabricmc.fabric.api.client.rendering.v1.BlockColorRegistry;
-import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
 //?} else {
 /*import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
@@ -60,13 +58,7 @@ public class FabricClientEntrypoint implements ClientModInitializer {
         if (wildflowerSupplier.garland().isPresent()) {
             BlockRenderLayerMap.INSTANCE.putBlocks(RenderType.cutout(), wildflowerSupplier.garland().get().get());
         }
-        *///?} else {
-        putBlocks(ChunkSectionLayer.CUTOUT, wildflowerSupplier.flowerBed().get(), wildflowerSupplier.pot().get());
-        if (wildflowerSupplier.garland().isPresent()) {
-            putBlocks(ChunkSectionLayer.CUTOUT, wildflowerSupplier.garland().get().get());
-        }
-        //?}
-
+        *///?}
     }
 
     public static void registerParticleTypes(
