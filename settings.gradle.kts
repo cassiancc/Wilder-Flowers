@@ -7,7 +7,6 @@ pluginManagement {
         maven("https://maven.neoforged.net/releases/") { name = "NeoForged" }
         maven("https://maven.kikugie.dev/snapshots") { name = "KikuGie" }
         maven("https://maven.kikugie.dev/releases") { name = "KikuGie Releases" }
-        maven("https://maven.parchmentmc.org") { name = "ParchmentMC" }
     }
 }
 
@@ -19,15 +18,9 @@ plugins {
 stonecutter {
     create(rootProject) {
         fun match(version: String, vararg loaders: String) = loaders
-            .forEach {
-                if (it == "fabric" && stonecutter.eval(version, ">1.21.11"))
-                    version("$version-$it", version).buildscript = "build.fabric_noremap.gradle.kts"
-                else
-                    version("$version-$it", version).buildscript = "build.$it.gradle.kts"
-            }
+            .forEach { version("$version-$it", version).buildscript = "build.$it.gradle.kts" }
 
-        match("1.21.1", "fabric", "neoforge")
-        match("26.1", "fabric")
+        match("26.1", "fabric", "neoforge")
 
         vcsVersion = "26.1-fabric"
     }

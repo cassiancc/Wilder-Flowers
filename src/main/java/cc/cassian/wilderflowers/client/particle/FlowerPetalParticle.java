@@ -1,17 +1,13 @@
 package cc.cassian.wilderflowers.client.particle;
 
 import com.mojang.blaze3d.vertex.VertexConsumer;
-//? if >1.20 {
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.util.RandomSource;
 import org.jetbrains.annotations.Nullable;
 import org.joml.Quaternionf;
 import org.joml.Vector3f;
-//?} else {
-/*import com.mojang.math.Vector3f;
-*///?}
 //? if >1.21.8 {
-import net.minecraft.client.renderer.state.QuadParticleRenderState;
+import net.minecraft.client.renderer.state.level.QuadParticleRenderState;
 //?}
 import net.minecraft.client.Camera;
 import net.minecraft.client.multiplayer.ClientLevel;

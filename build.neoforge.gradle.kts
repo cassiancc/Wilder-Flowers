@@ -34,13 +34,6 @@ repositories {
         }
     }
     maven {
-        name = "Parchment Mappings"
-        url = uri("https://maven.parchmentmc.org")
-        content {
-            includeGroupAndSubgroups("org.parchmentmc")
-        }
-    }
-    maven {
         name = "Xander Maven"
         url = uri("https://maven.isxander.dev/releases")
         content {
@@ -75,12 +68,6 @@ neoForge {
     version = property("deps.neoforge") as String
     validateAccessTransformers = true
 
-    if (hasProperty("deps.parchment")) parchment {
-        val (mc, ver) = (property("deps.parchment") as String).split(':')
-        mappingsVersion = ver
-        minecraftVersion = mc
-    }
-
     runs {
         register("client") {
             gameDirectory = file("run/")
@@ -104,10 +91,10 @@ dependencies {
     // McQoy
     implementation("folk.sisby:kaleido-config:${property("deps.kaleido")}")
     jarJar("folk.sisby:kaleido-config:${property("deps.kaleido")}")
-    implementation("maven.modrinth:mcqoy:${property("deps.mcqoy")}")
 
     // YACL  - required by McQoy
     if (hasProperty("deps.yacl")) {
+        implementation("maven.modrinth:mcqoy:${property("deps.mcqoy")}")
         runtimeOnly("dev.isxander:yet-another-config-lib:${property("deps.yacl")}-neoforge")
     }
 
@@ -145,11 +132,7 @@ tasks {
 
 java {
     withSourcesJar()
-    val javaCompat = if (stonecutter.eval(stonecutter.current.version, ">26")) {
-        JavaVersion.VERSION_25
-    } else {
-        JavaVersion.VERSION_21
-    }
+    val javaCompat = JavaVersion.VERSION_25
     sourceCompatibility = javaCompat
     targetCompatibility = javaCompat
 }

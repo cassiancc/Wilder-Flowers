@@ -1,8 +1,7 @@
 package cc.cassian.wilderflowers.neoforge;
 
 //? neoforge {
-/*import cc.cassian.wilderflowers.Platform;
-import cc.cassian.wilderflowers.WilderFlowers;
+/*import cc.cassian.wilderflowers.WilderFlowers;
 import cc.cassian.wilderflowers.events.CommonEvents;
 import cc.cassian.wilderflowers.registry.WilderFlowersBlocks;
 import cc.cassian.wilderflowers.registry.WilderFlowersParticleTypes;
@@ -21,7 +20,6 @@ import net.minecraft.world.item.Items;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
-import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.event.AddPackFindersEvent;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
@@ -34,9 +32,9 @@ import static cc.cassian.wilderflowers.tags.WilderFlowersItemTags.FLOWER_GARLAND
 
 @Mod(MOD_ID)
 @EventBusSubscriber(modid = MOD_ID)
-public class NeoforgeEntrypoint {
+public class NeoForgeEntrypoint {
 
-    public NeoforgeEntrypoint() {
+    public NeoForgeEntrypoint() {
         WilderFlowers.init();
     }
 
@@ -44,11 +42,7 @@ public class NeoforgeEntrypoint {
     static void buildCreativeModeTabs(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey().equals(CreativeModeTabs.NATURAL_BLOCKS)) {
             WilderFlowersBlocks.getWildflowerItems().forEach((wildflowerSupplier -> {
-                //? if >1.21.4 {
-                event.insertAfter(Items.WILDFLOWERS.getDefaultInstance(), wildflowerSupplier, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-                //?} else {
-                /^event.insertAfter(Items.PINK_PETALS.getDefaultInstance(), wildflowerSupplier.getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
-                ^///?}
+                event.insertAfter(Items.WILDFLOWERS.getDefaultInstance(), wildflowerSupplier.getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
             }));
         }
     }
@@ -76,10 +70,10 @@ public class NeoforgeEntrypoint {
     @SubscribeEvent
     public static void onChangeTarget(LivingChangeTargetEvent event) {
         LivingEntity living = event.getEntity();
-        if (living.level().isClientSide) return;
+        if (living.level().isClientSide()) return;
         if (!(living instanceof Mob mob)) return;
 
-        if (!mob.getType().is(GARLAND_WEARERS) || !mob.getItemBySlot(EquipmentSlot.HEAD).is(FLOWER_GARLANDS)) return;
+        if (!mob.is(GARLAND_WEARERS) || !mob.getItemBySlot(EquipmentSlot.HEAD).is(FLOWER_GARLANDS)) return;
 
         if (WilderFlowers.CONFIG.garlandWearersPassive) {
             event.setNewAboutToBeSetTarget(null);

@@ -18,13 +18,15 @@ import net.neoforged.neoforge.client.event.ModelEvent;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 
+import java.util.List;
+
 import static cc.cassian.wilderflowers.WilderFlowers.MOD_ID;
 
 @EventBusSubscriber(modid = MOD_ID, value= Dist.CLIENT)
 public class NeoForgeClientEntrypoint {
     @SubscribeEvent
-    public static void registerBlockColors(RegisterColorHandlersEvent.Block event){
-        event.register((WilderFlowersClient::getColor), WilderFlowersBlocks.MOODY_WILDFLOWERS.flowerBed().get(), WilderFlowersBlocks.CHEERY_WILDFLOWERS.flowerBed().get(), WilderFlowersBlocks.HOPEFUL_WILDFLOWERS.flowerBed().get(), WilderFlowersBlocks.PLAYFUL_WILDFLOWERS.flowerBed().get(), WilderFlowersBlocks.CLOVERS.flowerBed().get());
+    public static void registerBlockColors(RegisterColorHandlersEvent.BlockTintSources event){
+        event.register(List.of(WilderFlowersClient.getColor()), WilderFlowersBlocks.MOODY_WILDFLOWERS.flowerBed().get(), WilderFlowersBlocks.CHEERY_WILDFLOWERS.flowerBed().get(), WilderFlowersBlocks.HOPEFUL_WILDFLOWERS.flowerBed().get(), WilderFlowersBlocks.PLAYFUL_WILDFLOWERS.flowerBed().get(), WilderFlowersBlocks.CLOVERS.flowerBed().get());
     }
 
     @SubscribeEvent

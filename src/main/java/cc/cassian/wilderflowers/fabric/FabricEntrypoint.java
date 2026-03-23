@@ -20,13 +20,8 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import static cc.cassian.wilderflowers.WilderFlowers.MOD_ID;
-//? if >26 {
 import static net.fabricmc.fabric.api.resource.v1.pack.PackActivationType.DEFAULT_ENABLED;
 import net.fabricmc.fabric.api.resource.v1.ResourceLoader;
-import net.fabricmc.fabric.api.resource.v1.pack.PackActivationType;
-//?} else {
-/*import static net.fabricmc.fabric.api.resource.ResourcePackActivationType.DEFAULT_ENABLED;
-*///?}
 
 public class FabricEntrypoint implements ModInitializer {
 
@@ -35,25 +30,13 @@ public class FabricEntrypoint implements ModInitializer {
         WilderFlowers.init();
         WilderFlowersBlocks.touch();
         WilderFlowersParticleTypes.touch();
-        //? if >26 {
         net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents.modifyOutputEvent
-        //?} else {
-        /*net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents.modifyEntriesEvent
-        *///?}
         (CreativeModeTabs.NATURAL_BLOCKS).register((event -> {
             WilderFlowersBlocks.getWildflowerItems().forEach((wildflowerSupplier -> {
-                //? if >1.21.4 {
                 event.insertAfter(Items.WILDFLOWERS.getDefaultInstance(), wildflowerSupplier);
-                //?} else {
-                /*event.addAfter(Items.PINK_PETALS.getDefaultInstance(), wildflowerSupplier);
-                *///?}
             }));
         }));
-        //? if >26 {
         ResourceLoader.registerBuiltinPack
-        //?} else {
-        /*ResourceManagerHelper.registerBuiltinResourcePack
-        *///?}
         (
                 WilderFlowers.locate("wildflowers"),
                 FabricLoader.getInstance().getModContainer(MOD_ID).orElseThrow(),
@@ -61,11 +44,7 @@ public class FabricEntrypoint implements ModInitializer {
                 DEFAULT_ENABLED
         );
         WilderFlowersBlocks.getWildflowerItems().forEach((stack -> {
-            //? if >26 {
             net.fabricmc.fabric.api.registry.CompostableRegistry
-            //?} else {
-            /*net.fabricmc.fabric.api.registry.CompostingChanceRegistry
-            *///?}
 			.INSTANCE.add(stack, 0.3f);
 		}));
 
