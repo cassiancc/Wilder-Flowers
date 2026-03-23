@@ -155,7 +155,7 @@ publishMods {
     curseforge {
         projectId = property("publish.curseforge") as String
         accessToken = env.CURSEFORGE_API_KEY.orNull()
-        minecraftVersions.add(stonecutter.current.version)
+        minecraftVersions.add(property("deps.minecraft_cf") as String)
         minecraftVersions.addAll(additionalVersions)
         requires("fabric-api")
     }
