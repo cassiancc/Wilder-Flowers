@@ -21,6 +21,8 @@ import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.minecraft.client.renderer.rendertype.RenderType;
 *///?}
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
+import net.minecraft.client.color.block.BlockTintSource;
+import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.List;
 
@@ -34,7 +36,7 @@ public class FabricClientEntrypoint implements ClientModInitializer {
         //? if <1.21.9
         //ClientTickEvents.END_CLIENT_TICK.register((FlowerGarlandEvent::tick));
         registerParticleTypes(ParticleProviderRegistry.getInstance());
-        BlockColorRegistry.register(List.of(WilderFlowersClient.getColor()),
+        BlockColorRegistry.register(List.of(state -> -1, state -> -1, WilderFlowersClient.getColor()),
                 WilderFlowersBlocks.MOODY_WILDFLOWERS.flowerBed().get(),
                 WilderFlowersBlocks.HOPEFUL_WILDFLOWERS.flowerBed().get(),
                 WilderFlowersBlocks.CLOVERS.flowerBed().get());
