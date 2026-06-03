@@ -1,8 +1,8 @@
 {
   "id": "wilderflowers:hopeful_wildflowers",
   "item_model": "wilderflowers:item/hopeful_wildflowers",
-  "model1": "wilderflowers:block/hopeful_wildflowers_1",
-  "model2": "wilderflowers:block/hopeful_wildflowers_2",
-  "model3": "wilderflowers:block/hopeful_wildflowers_3",
-  "model4": "wilderflowers:block/hopeful_wildflowers_4"
+  "model1": "wilderflowers:block/tiny_flowers/hopeful_wildflowers_1",
+  "model2": "wilderflowers:block/tiny_flowers/hopeful_wildflowers_2",
+  "model3": "wilderflowers:block/tiny_flowers/hopeful_wildflowers_3",
+  "model4": "wilderflowers:block/tiny_flowers/hopeful_wildflowers_4"
 }
