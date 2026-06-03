@@ -1,0 +1,8 @@
+{
+  "id": "wilderflowers:moody_wildflowers",
+  "item_model": "wilderflowers:item/moody_wildflowers",
+  "model1": "wilderflowers:block/moody_wildflowers_1",
+  "model2": "wilderflowers:block/moody_wildflowers_2",
+  "model3": "wilderflowers:block/moody_wildflowers_3",
+  "model4": "wilderflowers:block/moody_wildflowers_4"
+}
