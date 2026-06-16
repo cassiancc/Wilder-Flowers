@@ -1,0 +1,8 @@
+{
+  "id": "wilderflowers:clovers",
+  "item_model": "wilderflowers:item/clovers",
+  "model1": "wilderflowers:block/clovers_1",
+  "model2": "wilderflowers:block/clovers_2",
+  "model3": "wilderflowers:block/clovers_3",
+  "model4": "wilderflowers:block/clovers_4"
+}
