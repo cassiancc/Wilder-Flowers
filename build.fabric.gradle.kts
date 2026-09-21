@@ -150,6 +150,7 @@ publishMods {
         minecraftVersions.add(property("deps.minecraft").toString())
         minecraftVersions.addAll(additionalVersions)
         requires("fabric-api")
+        optional("tiny-flowers")
     }
 
     curseforge {
@@ -158,6 +159,8 @@ publishMods {
         minecraftVersions.add(property("deps.minecraft_cf") as String)
         minecraftVersions.addAll(additionalVersions)
         requires("fabric-api")
+        clientRequired=true
+        serverRequired=true
     }
 }
 

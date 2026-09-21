@@ -1,3 +1,8 @@
+## [1.1.1]
+
+### Fixed
+- Tinting on 26.1.
+
 ## [1.1.0]
 
 - Added config:

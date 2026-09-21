@@ -159,6 +159,8 @@ publishMods {
         accessToken = env.MODRINTH_API_KEY.orNull()
         minecraftVersions.add(property("deps.minecraft").toString())
         minecraftVersions.addAll(additionalVersions)
+        optional("tiny-flowers")
+
     }
 
     curseforge {
@@ -166,5 +168,7 @@ publishMods {
         accessToken = env.CURSEFORGE_API_KEY.orNull()
         minecraftVersions.add(property("deps.minecraft_cf") as String)
         minecraftVersions.addAll(additionalVersions)
+        clientRequired=true
+        serverRequired=true
     }
 }
